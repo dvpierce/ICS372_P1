@@ -103,7 +103,7 @@ public class Trial {
 		// If the patient exists on record then set the patient to active
 		// else patient does not exist then add the patient and set to active
 		for(Patient patient : patients) {
-			if(patient_id == patient.getPatient_id()) {
+			if(patient_id.equals( patient.getPatient_id() ) ) {
 				patient.setPatient_active(true);
 				return "Patient " + patient_id + " has started trial.";
 			}
@@ -116,7 +116,7 @@ public class Trial {
 		// If the patient exists on record
 		// then set the patient to inactive
 		for(Patient patient : patients) {
-			if(patient_id == patient.getPatient_id()) {
+			if(patient_id.equals( patient.getPatient_id() ) ) {
 				patient.setPatient_active(false);
 				return "Patient " + patient_id + " has ended trial.";
 			}
