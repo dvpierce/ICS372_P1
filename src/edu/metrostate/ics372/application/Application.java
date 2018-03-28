@@ -197,13 +197,8 @@ public class Application {
 	
 	public String addClinic(String clinicID) {
 		List<Clinic> clinics = Trial.getInstance().getClinics();
-		for (Clinic c: clinics) {
-			if (c.getClinicID().equals(clinicID)) {
-				clinics.add(new Clinic(clinicID));
-				return "New clinic has been added ";
-			}
-		}
-		return "Clinic could not be added because we the Clinic is not on our record ";
+		clinics.add(new Clinic(clinicID));
+		return "Clinic successfully added!";
 	}
 	
 	public String addPatient(String patient_id ) {

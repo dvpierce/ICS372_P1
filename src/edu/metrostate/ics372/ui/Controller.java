@@ -276,28 +276,22 @@ public class Controller extends JPanel implements ActionListener {
         	
         	// Prompt user for record data.
         	JTextField clinic_id = new JTextField(24);
-        	JTextField clinic_name = new JTextField(24);
         	
         	JPanel myPanel = new JPanel();
         	myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.Y_AXIS));
             myPanel.add(new JLabel("Clinic ID:"));
             myPanel.add(clinic_id);
-            myPanel.add(new JLabel("Clinic Name:"));
-            myPanel.add(clinic_name);
             
             int result = JOptionPane.showConfirmDialog(null, myPanel, 
                     "Please Enter Clinic Values", JOptionPane.OK_CANCEL_OPTION);
             if (result == JOptionPane.OK_OPTION) {
             	String ClinicIDText = clinic_id.getText();
-            	String ClinicNameText = clinic_name.getText();
 
-            	if ( ( ClinicIDText.length() < 1 ) | (ClinicIDText == null ) |
-            			(ClinicNameText.length() < 1) | (ClinicNameText == null))
+            	if ( ( ClinicIDText.length() < 1 ) | (ClinicIDText == null ))
             	{
             		log.append("Could not add Clinic - user left required input blank" + NEWLINE);
             	} else {
                 	log.append("Clinic ID   : " + ClinicIDText + NEWLINE);
-                	log.append("Clinic Name   : " + ClinicNameText + NEWLINE);
                 	log.append(application.addClinic( ClinicIDText ) );
             	}
             } else {
