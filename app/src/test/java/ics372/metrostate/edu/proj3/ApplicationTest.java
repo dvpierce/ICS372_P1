@@ -1,4 +1,4 @@
-package edu.metrostate.ics372.application;
+package ics372.metrostate.edu.proj3;
 
 import static org.junit.jupiter.api.Assertions.*;
 

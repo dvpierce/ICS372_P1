@@ -2,7 +2,7 @@ package ics372.metrostate.edu.proj3;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import ics372.metrostate.edu.proj3.Clinic;
+import ics372.metrostate.edu.proj3.*;
 
 public class main extends AppCompatActivity {
 
@@ -12,5 +12,4 @@ public class main extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    Clinic a = new Clinic("Hello World!");
 }

@@ -1,4 +1,6 @@
-import edu.metrostate.ics372.domain.Clinic;
+package ics372.metrostate.edu.proj3;
+
+import ics372.metrostate.edu.proj3.*;
 import junit.framework.TestCase;
 
 public class ClinicTest extends TestCase {

@@ -1,3 +1,5 @@
+package ics372.metrostate.edu.proj3;
+
 import static org.junit.Assert.*;
 
 import java.io.File;
@@ -8,7 +10,7 @@ import org.json.*;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
-import edu.metrostate.ics372.io.FileWriter;
+import ics372.metrostate.edu.proj3.*;
 
 public class FileWriterTest {
 	

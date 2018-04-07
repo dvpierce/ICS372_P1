@@ -1,8 +1,10 @@
+package ics372.metrostate.edu.proj3;
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import edu.metrostate.ics372.domain.Reading;
+import ics372.metrostate.edu.proj3.*;
 
 public class ReadingTest {
 
