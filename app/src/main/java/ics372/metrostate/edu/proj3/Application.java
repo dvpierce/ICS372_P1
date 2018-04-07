@@ -111,8 +111,8 @@ public class Application {
 		}
 	}	
 	
-	 	public String loadData() {
-		try {	
+	public String loadData() {
+		try {
 			Trial trial = (Trial) FileReader.deserialize();
 			Trial.getInstance().setClinics(trial.getClinics());
 			Trial.getInstance().setPatients(trial.getPatients());

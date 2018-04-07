@@ -13,7 +13,7 @@ public class ReadJSON {
 
 	private ReadJSON()
 	{
-		
+		return;
 	}
 	
 	public static JsonObject read(String filePath) throws JsonIOException, JsonSyntaxException, FileNotFoundException {

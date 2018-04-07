@@ -10,7 +10,6 @@ public class FileWriter {
 
 	private FileWriter() {
 		return;
-		// TODO Auto-generated constructor stub
 	}
 
 	public static String write(JsonArray e, String fileName)
