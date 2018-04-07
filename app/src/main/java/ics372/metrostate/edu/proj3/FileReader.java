@@ -1,4 +1,4 @@
-package edu.metrostate.ics372.io;
+package ics372.metrostate.edu.proj3;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import org.json.JSONException;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 
-import edu.metrostate.ics372.domain.Trial;
+import ics372.metrostate.edu.proj3.*;
 
 public class FileReader {
 

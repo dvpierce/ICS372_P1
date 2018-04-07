@@ -1,4 +1,4 @@
-package edu.metrostate.ics372.application;
+package ics372.metrostate.edu.proj3;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
@@ -7,8 +7,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.Gson;
 
-import edu.metrostate.ics372.domain.*;
-import edu.metrostate.ics372.io.*;
+import ics372.metrostate.edu.proj3.*;
 
 public class Application {
 	

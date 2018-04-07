@@ -1,4 +1,4 @@
-package edu.metrostate.ics372.io;
+package ics372.metrostate.edu.proj3;
 import java.io.FileWriter;
 import com.google.gson.JsonArray;
 

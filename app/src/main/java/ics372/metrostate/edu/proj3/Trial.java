@@ -1,4 +1,4 @@
-package edu.metrostate.ics372.domain;
+package ics372.metrostate.edu.proj3;
 
 import java.io.Serializable;
 import java.util.ArrayList;
