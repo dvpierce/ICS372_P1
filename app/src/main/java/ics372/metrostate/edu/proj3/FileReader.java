@@ -19,10 +19,10 @@ public class FileReader {
 
 	public static Object read(String fileName) throws JsonIOException, JsonSyntaxException, IOException, JSONException
 	{
-		if (fileName.toLowerCase().contains("xml"))
+		if (fileName.toLowerCase().endsWith("xml"))
 		{
 			return ReadXML.read(fileName);
-		} else if (fileName.toLowerCase().contains("json"))
+		} else if (fileName.toLowerCase().endsWith("json"))
 		{
 			return ReadJSON.read(fileName);
 		} else {
