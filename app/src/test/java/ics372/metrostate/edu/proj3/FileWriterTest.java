@@ -3,7 +3,15 @@ package ics372.metrostate.edu.proj3;
 import static org.junit.Assert.*;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.ObjectStreamException;
+import java.nio.file.FileAlreadyExistsException;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.json.*;
 
@@ -13,48 +21,36 @@ import com.google.gson.JsonObject;
 import ics372.metrostate.edu.proj3.*;
 
 public class FileWriterTest {
-	
-	/*JsonArray value = Json.createArrayBuilder()
-		     .add(Json.createObjectBuilder()
-		         .add("type", "home")
-		         .add("number", "212 555-1234"))
-		     .add(Json.createObjectBuilder()
-		         .add("type", "fax")
-		         .add("number", "646 555-4567"))
-		     .build();*/
 
+	// test the write method
 	@Test
-	public void test() {
-		// FileWriter fw = new FileWriter();
-		
-		JsonArray ja = new JsonArray();
-		
-		//JsonObject jo = new JsonObject();
-		ja.add("patient_id");
-		ja.add("reading_type");
-		ja.add("reading_value");
-		
-		
-		String fileName =new String("temp.txt");
-		FileWriter.write(ja, fileName);
-		
-		
-		//assertNull();
-		/*JSONObject data = getRESTData("/friends/367.json");
-		String expected = "{friends:[{id:123,name:\"Corby Page\"},{id:456,name:\"Carter Page\"}]}";
-		JSONAssert.assertEquals(expected, data, false);
-		*/
-	}
+	public void test1() {
 
-	/*JSONArray jsonArray = new JSONArray();
-    JSONObject j1 = new JSONObject();
-    j1.put ("name", "John");
-    JSONObject j2 = new JSONObject();
-    j2.put ("name", "David");
-    jsonArray.add(j1);
-    jsonArray.add(j2);
-    Stream<String> ss = jsonArray.stream().map (json->json.toString ());
-    List<String> list = ss.collect (Collectors.toList ());
-    System.out.println(list);*/
+        String fileName = "tempFile.txt";
+        JsonArray ja = new JsonArray();
 
+        ja.add("patient_id");
+        ja.add("reading_type");
+        ja.add("reading_value");
+
+        try {
+            FileWriter fileWriter = new FileWriter(fileName);
+            fileWriter.write(ja.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Assert.assertFalse(fileName.isEmpty());
+
+        }
+		// test serialize method
+		@Test
+		public void test2() throws IOException {
+			Object obj = new Object();
+			String serlizeName = "test.ser";
+			FileOutputStream fout = new FileOutputStream(serlizeName);
+			ObjectOutputStream obos = new ObjectOutputStream(fout);
+
+			Assert.assertNotNull(obj);
+            Assert.assertTrue(obos.equals(obj));
+		}
 }
