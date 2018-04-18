@@ -28,17 +28,10 @@ public class ReadXML {
 	        str+=line;  
 	    }
 	    br.close();
-	    
-	    //
-	    // System.out.println(str);
-	    //
-	    
+
 	    JSONObject TheObject = XML.toJSONObject(str);
 		JsonObject jo = new JsonParser().parse(TheObject.toString()).getAsJsonObject();
 
-		//
-		// System.out.println(jo.toString());
-		//
 		
 		return jo;
 	}

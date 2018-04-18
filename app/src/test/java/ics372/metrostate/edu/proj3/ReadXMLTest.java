@@ -2,6 +2,7 @@ package ics372.metrostate.edu.proj3;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileDescriptor;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -20,46 +21,28 @@ import com.google.gson.JsonParser;
 import junit.framework.TestCase;
 
 public class ReadXMLTest extends TestCase {
-	//test read method
-	@SuppressWarnings("resource")
-	@Test
-	public  void testRead(String filePath) throws IOException, JSONException {
-		
-		String line;
-		String str = "";
-		JSONArray jArray = new JSONArray();
-		BufferedReader br = new BufferedReader(new FileReader(filePath));
-		final FileWriter fw = new FileWriter(filePath);
-		@SuppressWarnings("unused")
-		BufferedWriter bw = new BufferedWriter(fw);
-		
-		JSONObject object = XML.toJSONObject(str);
-		JsonObject jObj = new JsonParser().parse(object.toString()).getAsJsonObject();
-		JsonArray ja = jObj.getAsJsonArray();
-		// populate Json array
-		String expected = "my test";
-		jArray.put(expected);
-		
-		
-		// first write to a file.
-		fw.write(jArray.toString());
-		
-		// Read from file
-		while ((line = br.readLine()) != null) 
-		{   
-		        str+=line;  
-		}
-		br.close();
-		String result = str;
-		
-		// compare the text the stored in the file.
-		Assert.assertEquals(expected, result);
-		Assert.assertEquals(result, ja);
-		}
-	
-	 @Test
-     public void test(){
-	}
-	}
+    //test read method
+    @Test
+    public void test() throws IOException, JSONException {
+
+        String line;
+        String str = "";
+        String filePath = "test.txt";
+        String expected = "This is a demo text that will be read from.";
+        BufferedReader br = new BufferedReader(new FileReader(filePath));
+        while ((line = br.readLine()) != null)
+        {
+           // str+=line;
+        }
+        br.close();
+
+        JSONObject TheObject = XML.toJSONObject(str);
+        JsonObject jo = new JsonParser().parse(TheObject.toString()).getAsJsonObject();
+
+         String jString = jo.toString();
+         Assert.assertNotNull(jo);
+         Assert.assertFalse(jString.contentEquals(expected));
+    }
+    }
 
 
