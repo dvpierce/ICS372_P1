@@ -4,6 +4,7 @@ import org.junit.Test;
 
 public class PatientTest {
 
+
 	@Test
 	public void test() {
 		//test patient class constructor
