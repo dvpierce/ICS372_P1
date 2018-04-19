@@ -1,0 +1,123 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:2:1-27:12
+MERGED from [com.android.support:appcompat-v7:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/700950674e197ef9eea36a956f8da4c4/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/sckang511/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/c5f7881c4a7e9b549a5bf6e1196bf81b/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/61572a877a533eda5e0f9f45b4f238aa/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.0.aar/1cf673bfd0f179e383349d5428b54369/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/c99dd9d7347bc1042d8bd52a9f4830b2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/e1207643e4c6574e1046fe1e7a94f65a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.0.aar/f03eca3e8dd4342f9f8e5d3ef0c13807/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/1665c3c52602ac0f5539c0d772bdf6ac/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/17e37e0e05f605ba029d7c4c6734d9f5/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/c45f8faa244b71edf0b1ecd8596b6251/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/d749f08c7e43e7a0111845df6dc4154d/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/b4366ba8caae61fad378eaa82880eb27/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:2:1-27:12
+	package
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:3:5-42
+		INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml
+		INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:2:1-27:12
+		INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:2:1-27:12
+		INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:5:5-80
+	android:name
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:5:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:6:5-81
+	android:name
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:6:22-78
+application
+ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:8:5-25:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/sckang511/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/c5f7881c4a7e9b549a5bf6e1196bf81b/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/sckang511/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/c5f7881c4a7e9b549a5bf6e1196bf81b/AndroidManifest.xml:9:5-20
+	android:supportsRtl
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:13:9-35
+	android:label
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:11:9-41
+	android:roundIcon
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:12:9-54
+	android:icon
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:10:9-43
+	android:allowBackup
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:9:9-35
+	android:theme
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:14:9-40
+activity#ics372.metrostate.edu.proj3.MainActivity
+ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:15:9-21:20
+	android:name
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:15:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:16:13-20:29
+action#android.intent.action.MAIN
+ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:17:17-69
+	android:name
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:17:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:19:17-77
+	android:name
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:19:27-74
+activity#ics372.metrostate.edu.proj3.ReadingActivity
+ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:22:9-53
+	android:name
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:22:19-50
+activity#ics372.metrostate.edu.proj3.PatientActivity
+ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:23:9-53
+	android:name
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:23:19-50
+activity#ics372.metrostate.edu.proj3.ClinicActivity
+ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:24:9-61
+	android:name
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml:24:19-49
+uses-sdk
+INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml
+INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:appcompat-v7:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/700950674e197ef9eea36a956f8da4c4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/700950674e197ef9eea36a956f8da4c4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/sckang511/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/c5f7881c4a7e9b549a5bf6e1196bf81b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/sckang511/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/c5f7881c4a7e9b549a5bf6e1196bf81b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-fragment:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/61572a877a533eda5e0f9f45b4f238aa/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/61572a877a533eda5e0f9f45b4f238aa/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.0.aar/1cf673bfd0f179e383349d5428b54369/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.0.aar/1cf673bfd0f179e383349d5428b54369/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/c99dd9d7347bc1042d8bd52a9f4830b2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/c99dd9d7347bc1042d8bd52a9f4830b2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/e1207643e4c6574e1046fe1e7a94f65a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/e1207643e4c6574e1046fe1e7a94f65a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.0.aar/f03eca3e8dd4342f9f8e5d3ef0c13807/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.0.aar/f03eca3e8dd4342f9f8e5d3ef0c13807/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/1665c3c52602ac0f5539c0d772bdf6ac/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/1665c3c52602ac0f5539c0d772bdf6ac/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/17e37e0e05f605ba029d7c4c6734d9f5/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/17e37e0e05f605ba029d7c4c6734d9f5/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/c45f8faa244b71edf0b1ecd8596b6251/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/c45f8faa244b71edf0b1ecd8596b6251/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/d749f08c7e43e7a0111845df6dc4154d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/d749f08c7e43e7a0111845df6dc4154d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/b4366ba8caae61fad378eaa82880eb27/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/sckang511/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/b4366ba8caae61fad378eaa82880eb27/AndroidManifest.xml:20:5-44
+INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml
+INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml
+		INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml
+		ADDED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml
+		INJECTED from /home/sckang511/Git/ICS372_P1/app/src/main/AndroidManifest.xml
