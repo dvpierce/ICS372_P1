@@ -3057,19 +3057,22 @@ public final class R {
     public static final int button_clinic=0x7f0b001e;
     public static final int button_create=0x7f0b001f;
     public static final int button_delete=0x7f0b0020;
-    public static final int button_view_readings =0x7f0b0021;
-    public static final int button_export=0x7f0b0022;
-    public static final int button_import=0x7f0b0023;
-    public static final int button_patient=0x7f0b0024;
-    public static final int button_reading=0x7f0b0025;
-    public static final int plainText_search_patient=0x7f0b0026;
-    public static final int search_menu_title=0x7f0b0027;
-    public static final int status_bar_notification_info_overflow=0x7f0b0028;
-    public static final int textView_file=0x7f0b0029;
-    public static final int textView_id=0x7f0b002a;
-    public static final int textView_manage=0x7f0b002b;
-    public static final int textView_patient=0x7f0b002c;
-    public static final int textView_reading=0x7f0b002d;
+    public static final int button_export=0x7f0b0021;
+    public static final int button_import=0x7f0b0022;
+    public static final int button_patient=0x7f0b0023;
+    public static final int button_reading=0x7f0b0024;
+    public static final int button_view_patients=0x7f0b0025;
+    public static final int button_view_readings=0x7f0b0026;
+    public static final int plainText_search_clinic=0x7f0b0027;
+    public static final int plainText_search_patient=0x7f0b0028;
+    public static final int search_menu_title=0x7f0b0029;
+    public static final int status_bar_notification_info_overflow=0x7f0b002a;
+    public static final int textView_clinic=0x7f0b002b;
+    public static final int textView_file=0x7f0b002c;
+    public static final int textView_id=0x7f0b002d;
+    public static final int textView_manage=0x7f0b002e;
+    public static final int textView_patient=0x7f0b002f;
+    public static final int textView_reading=0x7f0b0030;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f0c0000;

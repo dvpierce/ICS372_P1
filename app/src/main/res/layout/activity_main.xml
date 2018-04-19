@@ -9,23 +9,23 @@
     <LinearLayout
         android:id="@+id/layout_fileIO"
         android:layout_width="352dp"
-        android:layout_height="0dp"
+        android:layout_height="70dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal"
         android:background="@drawable/ic_layout_border"
+        android:orientation="horizontal"
         android:padding="0.5dp"
-        app:layout_constraintBottom_toTopOf="@+id/layout_view"
+        app:layout_constraintBottom_toTopOf="@+id/textView_manage"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView_file">
 
         <Button
             android:id="@+id/button_import"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -36,7 +36,7 @@
         <Button
             android:id="@+id/button_export"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -48,17 +48,24 @@
     <LinearLayout
         android:id="@+id/layout_view"
         android:layout_width="352dp"
-        android:layout_height="290dp"
+        android:layout_height="362dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
         android:background="@drawable/ic_layout_border"
         android:orientation="vertical"
         android:padding="0.5dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="119dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_manage">
 
         <Button
             android:id="@+id/button_reading"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
@@ -68,7 +75,7 @@
         <Button
             android:id="@+id/button_patient"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
@@ -78,7 +85,7 @@
         <Button
             android:id="@+id/button_clinic"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginBottom="32dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
@@ -93,8 +100,10 @@
         android:text="@string/textView_file"
         android:textColor="@android:color/darker_gray"
         android:textStyle="italic"
-        tools:layout_editor_absoluteX="181dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintBottom_toTopOf="@+id/layout_fileIO"
+        app:layout_constraintEnd_toStartOf="@+id/layout_fileIO"
+        app:layout_constraintStart_toEndOf="@+id/layout_fileIO"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView_manage"
@@ -103,6 +112,10 @@
         android:text="@string/textView_manage"
         android:textColor="@android:color/darker_gray"
         android:textStyle="italic"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="119dp" />
+        app:layout_constraintBottom_toTopOf="@+id/layout_view"
+        app:layout_constraintEnd_toStartOf="@+id/layout_view"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toEndOf="@+id/layout_view"
+        app:layout_constraintTop_toBottomOf="@+id/layout_fileIO" />
+
 </android.support.constraint.ConstraintLayout>

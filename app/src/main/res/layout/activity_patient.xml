@@ -91,8 +91,10 @@
         android:layout_width="368dp"
         android:layout_height="42dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="461dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/table_patient">
 
         <Button
             android:id="@+id/button_create"
