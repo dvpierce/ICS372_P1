@@ -4,6 +4,16 @@
             "outputFile": "/home/sckang511/Git/ICS372_P1/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
             "map": [
                 {
+                    "source": "/home/sckang511/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/9b1d7e127cb56218a7ee70b762a1e117/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                },
+                {
                     "source": "/home/sckang511/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/700950674e197ef9eea36a956f8da4c4/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
@@ -20,16 +30,6 @@
                         "endLines": "6",
                         "endColumns": "12",
                         "endOffsets": "289"
-                    }
-                },
-                {
-                    "source": "/home/sckang511/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/1665c3c52602ac0f5539c0d772bdf6ac/res/values-v16/values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
                     }
                 }
             ]
