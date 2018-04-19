@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">proj3</string>
+    <string name="app_name">Clinical Trial Management System</string>
+    <string name="button_import">Import</string>
+    <string name="button_export">Export</string>
+    <string name="button_reading">Reading</string>
+    <string name="button_patient">Patient</string>
+    <string name="button_clinic">Clinic</string>
+    <string name="textView_file">File</string>
+    <string name="textView_manage">Manage</string>
+    <string name="textView_reading">Reading</string>
+    <string name="button_create">Create</string>
+    <string name="button_delete">Delete</string>
+    <string name="textView_patient">Patient</string>
+    <string name="textView_id">ID:</string>
+    <string name="plainText_search_patient">Search a patient</string>
+    <string name="button_view_readings">View Readings</string>
+    <string name="textView_clinic">Clinic</string>
+    <string name="plainText_search_clinic">Search a clinic</string>
+    <string name="button_view_patients">View Patients</string>
 </resources>
