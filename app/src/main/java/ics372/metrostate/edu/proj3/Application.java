@@ -12,23 +12,56 @@ public class Application {
 		return text;
 	}
 
+	enum State {
+		ACTIVE, WITHDRAWN,FAILED, COMPLETED;
+	}
 
-	public String beginStudy(String patient_id) {
+	State state;
+	public void States(String patient_id) {
+		List<Patient> patients = Trial.getInstance().getPatients();
+		for (Patient patient : patients) {
+			if (patient.getPatient_id().equals(patient_id))
+				switch (state) {
+					case ACTIVE:
+						patients.add(new Patient(patient_id, true));
+						System.out.println ("Patient " + patient_id + " has been added and has been activated!");
+					break;
+					case FAILED:
+						patient.setPatient_active(false);
+						System.out.println ("Patient " + patient_id + " has failed the Trial and deactivated");
+					break;
+					case COMPLETED:
+						patient.setPatient_active(false);
+						System.out.println ("Patient " + patient_id + " has completed the Trial and thus not more active");
+					break;
+					case WITHDRAWN:
+						patient.setPatient_active(false);
+						System.out.println  ("Patient " + patient_id + " has withdrawn from the Trial and thus deactivated");
+						default:
+						System.out.println("Patient " + patient_id + "counld not be found and cant be assigned a state in the Trial");
+						break;
+				}
+
+		}
+		//return "Patient " + patient_id + " could not be found";
+	}
+/*
+	public String beginStudy(String patient_id, State states) {
 		// If the patient exists on record then set the patient to active
 		// else patient does not exist then add the patient and set to active
 		List<Patient> patients = Trial.getInstance().getPatients();
 		for(Patient patient : patients) {
 			if(patient.getPatient_id().equals(patient_id))
 			{
-				patient.setPatient_status(Patient.States.ACTIVE);
+				patient.setPatient_status(true);
 				return "Patient " + patient_id + " has been activated!";
 			}
 		}
-		patients.add( new Patient(patient_id, Patient.States.ACTIVE) );
+		patients.add( new Patient(patient_id, State.ACTIVE) );
 		return "Patient " + patient_id + " has been added and has been activated!";
 	}
 
-	public String endStudy(String patient_id) {
+	public String endStudy(String patient_id, State states) {
 		// If the patient exists on record
 		// then set the patient to inactive
 		List<Patient> patients = Trial.getInstance().getPatients();
@@ -48,7 +81,7 @@ public class Application {
 		}
 		return "Patient " + patient_id + " could not be found!";
 	}
-	
+	*/
 	public String addReading(String patient_id, String reading_type, String reading_id, String reading_value, long reading_date, String reading_clinic) {
 		// If the patient exists on record and is set active
 		// then add the reading to that patient
@@ -73,7 +106,7 @@ public class Application {
 	
 	public String addPatient(String patient_id ) {
 		List<Patient> patients = Trial.getInstance().getPatients();
-		patients.add(new Patient(patient_id, Patient.States.ACTIVE));
+		patients.add(new Patient(patient_id, true));
 		return "Patient has been added";
 	}
 }

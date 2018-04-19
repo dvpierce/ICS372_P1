@@ -35,7 +35,7 @@ public class ObjectParser {
 
                         // populate the java objects
                         Trial.getInstance().getReadings().add( new Reading(patient_id, reading_type, reading_id, reading_value, reading_date, reading_clinic) );
-                        Trial.getInstance().getPatients().add( new Patient(patient_id, Patient.States.ACTIVE) );
+                        Trial.getInstance().getPatients().add( new Patient(patient_id, true) );
                         Trial.getInstance().getClinics().add( new Clinic(reading_clinic) );
                     } catch (NullPointerException f) {
                         System.out.println("An error occured: json missing data");
@@ -85,7 +85,7 @@ public class ObjectParser {
 
                     // populate the java objects
                     Trial.getInstance().getReadings().add( new Reading(patient_id, reading_type, reading_id, reading_value, reading_date, reading_clinic) );
-                    Trial.getInstance().getPatients().add( new Patient(patient_id, Patient.States.ACTIVE) );
+                    Trial.getInstance().getPatients().add( new Patient(patient_id, true) );
                     Trial.getInstance().getClinics().add( new Clinic(reading_clinic) );
 
                 }
