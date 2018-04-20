@@ -20,14 +20,11 @@ public class ReadJSON {
 		// Parser parses the JSON file into a JSON tree
 		JsonParser parser = new JsonParser();
 		JsonElement jsontree = parser.parse(new FileReader(filePath));
+
 		// Convert the JSON tree to JSON object
 		JsonObject jo = jsontree.getAsJsonObject();
-		// JsonArray ja = jo.getAsJsonArray();
-		
-		//
-		// System.out.println(jo.toString());
-		//
-		
+
+		System.out.println(jo.toString());
 		return jo;
 	}
 }

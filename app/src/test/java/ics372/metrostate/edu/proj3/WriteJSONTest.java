@@ -12,18 +12,22 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import junit.framework.TestCase;
 
-public class WriteJSONTest extends TestCase{
+public class WriteJSONTest {
 	
 	// this folder gets cleaned up automatically by JUnit
 	@Rule
-	public TemporaryFolder tempFolder = new TemporaryFolder();
-  
+	public TemporaryFolder tempFolder;
+
+	public WriteJSONTest() {
+		tempFolder = new TemporaryFolder();
+	}
+
 
 	// test the write method.
 	@Test
-	public void testWrite(JSONArray j, String f) throws IOException, JSONException{
+	public void test() throws IOException, JSONException{
 
-	String filePath = null;
+	String filePath = "test.txt";
 	final FileWriter fw = new FileWriter(filePath);
 	BufferedWriter bw = new BufferedWriter(fw);
 
@@ -35,19 +39,13 @@ public class WriteJSONTest extends TestCase{
 	JSONArray Jstruc = new JSONArray();
     Jstruc.put("PatientName");
 	Jstruc.put("Patient_ID");
-   	
+
     // write on the tempFile.
      bw.write(Jstruc.toString());
-     
+
      Assert.assertEquals("PatientName", Jstruc.getString(0));
     
 	
   }
-	
-	@Test
-	public void testRule()
-	{
-		//fail("Not yet implemented");
-	}
 }
 
