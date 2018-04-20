@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class ReadingBuilder {
 
-    String reading_value, reading_clinic, reading_id, reading_type, patient_id;
+    private String reading_value, reading_clinic, reading_id, reading_type, patient_id;
     long reading_date;
 
     public ReadingBuilder() {
@@ -29,7 +29,7 @@ public class ReadingBuilder {
                 ( reading_id == null ) ||
                 ( reading_type == null ) ||
                 ( patient_id == null ) ) {
-
+            return null;
         } else {
             r = new Reading(patient_id, reading_type, reading_id, reading_value, reading_date, reading_clinic);
         }

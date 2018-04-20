@@ -44,16 +44,27 @@ public class LoaderXML {
         }
 
         ReadingBuilder builder = new ReadingBuilder();
-        
+        builder.setReading_clinic(ClinicID);
 
         int ReadingsFound = 0;
         for ( int temp = 0; temp < nList.getLength(); temp++) {
 
-            Node nNode = nList.item(ReadingsFound);
+            Node nNode = nList.item(temp);
+            Element eElement = (Element) nNode;
+            Element valueElement = (Element) eElement.getElementsByTagName("Value").item(0);
 
+            builder.setReading_id(eElement.getAttribute("id"));
+            builder.setReading_type(eElement.getAttribute("type"));
+            builder.setReading_value(eElement.getElementsByTagName("Value").item(0).getTextContent());
+            builder.setPatient_id(eElement.getElementsByTagName("Patient").item(0).getTextContent());
 
-
-            ReadingsFound++;
+            Reading tempReading = builder.build();
+            if ( tempReading != null ) {
+                // Domain.AddReading(new builder.build();
+                ReadingsFound++;
+            } else {
+                return false;
+            }
         }
         System.out.println(String.format("Found %d readings.", ReadingsFound));
         return true;
