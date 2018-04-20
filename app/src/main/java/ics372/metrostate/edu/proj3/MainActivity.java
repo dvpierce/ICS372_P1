@@ -5,6 +5,9 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import com.obsez.android.lib.filechooser.ChooserDialog;
+import java.io.File;
+import android.widget.Toast;
 
 import ics372.metrostate.edu.proj3.*;
 
@@ -22,8 +25,19 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void importFile(View view) {
-        ImportFragment importDialog = new ImportFragment();
-        importDialog.show(getSupportFragmentManager(), "Import");
+        new ChooserDialog().with(this)
+                .withStartFile("/sdcard")
+                .withChosenListener(new ChooserDialog.Result() {
+                    @Override
+                    public void onChoosePath(String path, File pathFile) {
+                        try { FileReader.read(path); }
+                        catch (Exception e) {
+                            System.out.println(e.getStackTrace());
+                        }
+                    }
+                })
+                .build()
+                .show();
     }
 
     /**

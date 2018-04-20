@@ -18,7 +18,7 @@ public class ReadXML {
 		return;
 	}
 	
-	public static JsonObject read(String filePath) throws IOException, JSONException
+	public static void read(String filePath) throws IOException, JSONException
 	{		
 		String line;
 		String str = "";
@@ -32,8 +32,8 @@ public class ReadXML {
 	    JSONObject TheObject = XML.toJSONObject(str);
 		JsonObject jo = new JsonParser().parse(TheObject.toString()).getAsJsonObject();
 
-		
-		return jo;
+
+		JSONLoader.load(jo);
 	}
 	
 }

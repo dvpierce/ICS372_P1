@@ -22,23 +22,26 @@ public class FileReader {
 		return;
 	}
 
-	public static JsonObject read(String fileName) throws JsonIOException, JsonSyntaxException, IOException, JSONException
+	public static void read(String filePath) throws JsonIOException, JsonSyntaxException, IOException, JSONException
 	{
-	    /* Search internal and external storage for the filename provided, external first. */
-	    /* MainActivity should have already requested permissions. */
+	    /** MainActivity passes path to a file, either XML or JSON.
+	     *
+         * Read the file in using the correct Reader.
+         *
+	     */
 
-	    
-
-		if (fileName.toLowerCase().endsWith("xml"))
+		if (filePath.toLowerCase().endsWith("xml"))
 		{
-			return ReadXML.read(fileName);
-		} else if (fileName.toLowerCase().endsWith("json"))
+			ReadXML.read(filePath);
+			return;
+		} else if (filePath.toLowerCase().endsWith("json"))
 		{
-			return ReadJSON.read(fileName);
+			ReadJSON.read(filePath);
+			return;
 		} else {
 			System.out.println("File type could not be determined: please select a valid JSON file ending in \".json\", or a valid XML file ending in \".xml\".");
 		}
-		return null;
+		return;
 	}
 	
 	public static Object deserialize() throws ClassNotFoundException, IOException
