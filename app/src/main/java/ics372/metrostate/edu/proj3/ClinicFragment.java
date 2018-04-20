@@ -6,13 +6,8 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
-import java.util.Arrays;
-
-public class PatientFragment extends DialogFragment {
+public class ClinicFragment extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -20,29 +15,22 @@ public class PatientFragment extends DialogFragment {
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
+        // Create content
+        builder.setTitle(R.string.dialog_clinic_title);
+
         // Get the layout inflater
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
-        // Create the view
-        View view = inflater.inflate(R.layout.fragment_patient_content, null);
-
-        // Create the spinner
-        Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
-        ArrayAdapter<PatientState> dataAdapter = new ArrayAdapter<PatientState>(getActivity(), android.R.layout.simple_spinner_item, PatientState.values());
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(dataAdapter);
-
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because it's going in the dialog layout
-        builder.setTitle(R.string.dialog_patient_title);
-        builder.setView(view);
+        builder.setView(inflater.inflate(R.layout.fragment_clinic_content, null));
 
         // Create action buttons
-        builder.setPositiveButton(R.string.button_create, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // create
-                    }
-                })
+        builder.setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // export
+            }
+        })
                 .setNegativeButton(R.string.button_cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // cancel

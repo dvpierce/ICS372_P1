@@ -44,7 +44,7 @@ public class Application {
 						
 						// populate the java objects						
 						Trial.getInstance().getReadings().add( new Reading(patient_id, reading_type, reading_id, reading_value, reading_date, reading_clinic) );
-						Trial.getInstance().getPatients().add( new Patient(patient_id, true) );
+						Trial.getInstance().getPatients().add( new Patient(patient_id, PatientState.ACTIVE) );
 						Trial.getInstance().getClinics().add( new Clinic(reading_clinic) );	
 					} catch (NullPointerException f) {
 						System.out.println("An error occured: json missing data");
@@ -94,7 +94,7 @@ public class Application {
 					
 					// populate the java objects						
 					Trial.getInstance().getReadings().add( new Reading(patient_id, reading_type, reading_id, reading_value, reading_date, reading_clinic) );
-					Trial.getInstance().getPatients().add( new Patient(patient_id, true) );
+					Trial.getInstance().getPatients().add( new Patient(patient_id, PatientState.ACTIVE) );
 					Trial.getInstance().getClinics().add( new Clinic(reading_clinic) );	
 
 				}
@@ -161,11 +161,11 @@ public class Application {
 		List<Patient> patients = Trial.getInstance().getPatients();
 		for(Patient patient : patients) {
 			if(patient.getPatient_id().equals(patient_id)) {
-				patient.setPatient_active(true);
+				patient.setPatient_status(PatientState.ACTIVE);
 				return "Patient " + patient_id + " has been activated!";
 			}
 		}
-		patients.add( new Patient(patient_id, true) );
+		patients.add( new Patient(patient_id, PatientState.ACTIVE) );
 		return "Patient " + patient_id + " has been added and has been activated!";
 	}
 
@@ -175,38 +175,38 @@ public class Application {
 		List<Patient> patients = Trial.getInstance().getPatients();
 		for(Patient patient : patients) {
 			if(patient.getPatient_id().equals(patient_id)) {
-				patient.setPatient_active(false);
+				patient.setPatient_status(PatientState.FAILED);
 				return "Patient " + patient_id + " has been deactivated!";
 			}
 		}
 		return "Patient " + patient_id + " could not be found!";
 	}
 	
-	public String addReading(String patient_id, String reading_type, String reading_id, String reading_value, long reading_date, String reading_clinic) {
-		// If the patient exists on record and is set active
-		// then add the reading to that patient
-		List<Patient> patients = Trial.getInstance().getPatients();
-		List<Reading> readings = Trial.getInstance().getReadings();
-		for(Patient p : patients) {
-			if(p.getPatient_id().equals(patient_id) && p.isPatient_active()) {
-				readings.add(new Reading(patient_id, reading_type, reading_id, reading_value, reading_date, reading_clinic));
-				return "New reading has been added to patient " + patient_id + "at the clinic " + reading_clinic +".";
-			}
-		}
-		return "Reading could not be added: patient " + patient_id + " is not on record or is inactive. Please add the patient " + patient_id + " first!";
-	}
-	
-	public String addClinic(String clinicID) {
-		List<Clinic> clinics = Trial.getInstance().getClinics();
-		
-				clinics.add(new Clinic(clinicID));
-				return "New clinic has been added ";
-			}
-		
-	
-	public String addPatient(String patient_id ) {
-		List<Patient> patients = Trial.getInstance().getPatients();
-		patients.add(new Patient(patient_id, true));
-		return "Patient has been added";
-	}
+//	public String addReading(String patient_id, String reading_type, String reading_id, String reading_value, long reading_date, String reading_clinic) {
+//		// If the patient exists on record and is set active
+//		// then add the reading to that patient
+//		List<Patient> patients = Trial.getInstance().getPatients();
+//		List<Reading> readings = Trial.getInstance().getReadings();
+//		for(Patient p : patients) {
+//			if(p.getPatient_id().equals(patient_id) && p.isPatient_active()) {
+//				readings.add(new Reading(patient_id, reading_type, reading_id, reading_value, reading_date, reading_clinic));
+//				return "New reading has been added to patient " + patient_id + "at the clinic " + reading_clinic +".";
+//			}
+//		}
+//		return "Reading could not be added: patient " + patient_id + " is not on record or is inactive. Please add the patient " + patient_id + " first!";
+//	}
+//
+//	public String addClinic(String clinicID) {
+//		List<Clinic> clinics = Trial.getInstance().getClinics();
+//
+//				clinics.add(new Clinic(clinicID));
+//				return "New clinic has been added ";
+//	}
+//
+//
+//	public String addPatient(String patient_id ) {
+//		List<Patient> patients = Trial.getInstance().getPatients();
+//		patients.add(new Patient(patient_id, true));
+//		return "Patient has been added";
+//	}
 }

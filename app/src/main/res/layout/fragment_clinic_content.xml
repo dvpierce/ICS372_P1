@@ -29,7 +29,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="@string/plainText_enter_pID"
+            android:hint="@string/plainText_clinic"
             android:inputType="textPersonName" />
     </LinearLayout>
 
@@ -40,21 +40,25 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView_status"
-            android:layout_width="183dp"
+            android:id="@+id/textView_name"
+            android:layout_width="91dp"
             android:layout_height="match_parent"
+            android:layout_gravity="bottom"
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
             android:layout_weight="1"
-            android:text="@string/textView_status"
+            android:text="@string/dialog_clinic_name"
             android:textSize="18sp" />
 
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/editText_name"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/plainText_clinic_name"
+            android:inputType="textPersonName" />
     </LinearLayout>
 </LinearLayout>

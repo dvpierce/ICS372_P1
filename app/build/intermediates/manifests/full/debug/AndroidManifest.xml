@@ -33,6 +33,7 @@
         <activity android:name="ics372.metrostate.edu.proj3.ReadingActivity" />
         <activity android:name="ics372.metrostate.edu.proj3.PatientActivity" />
         <activity android:name="ics372.metrostate.edu.proj3.ClinicActivity" />
+        <activity android:name="ics372.metrostate.edu.proj3.CreateReadingActivity" />
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"

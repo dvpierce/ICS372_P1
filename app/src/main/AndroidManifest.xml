@@ -25,6 +25,7 @@
         <activity android:name=".ReadingActivity" />
         <activity android:name=".PatientActivity" />
         <activity android:name=".ClinicActivity" />
+        <activity android:name=".CreateReadingActivity"></activity>
     </application>
 
 </manifest>

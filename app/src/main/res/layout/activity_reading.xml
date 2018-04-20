@@ -47,7 +47,7 @@
     <LinearLayout
         android:id="@+id/layout_button"
         android:layout_width="352dp"
-        android:layout_height="46dp"
+        android:layout_height="39dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,6 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="32dp"
             android:layout_weight="1"
+            android:onClick="createReading"
             android:text="@string/button_create" />
 
         <Button

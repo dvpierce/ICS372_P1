@@ -380,12 +380,12 @@
         "source": "/home/sckang511/.gradle/caches/transforms-1/files-1.1/play-services-plus-15.0.0.aar/0280b4fff0f2b8bcf7acc08e642677b2/res/drawable-mdpi-v4/ic_plusone_tall_off_client.png"
     },
     {
-        "merged": "/home/sckang511/Git/ICS372_P1/app/build/intermediates/res/merged/debug/layout_abc_screen_simple_overlay_action_mode.xml.flat",
-        "source": "/home/sckang511/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/700950674e197ef9eea36a956f8da4c4/res/layout/abc_screen_simple_overlay_action_mode.xml"
-    },
-    {
         "merged": "/home/sckang511/Git/ICS372_P1/app/build/intermediates/res/merged/debug/drawable_abc_btn_check_material.xml.flat",
         "source": "/home/sckang511/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/700950674e197ef9eea36a956f8da4c4/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/home/sckang511/Git/ICS372_P1/app/build/intermediates/res/merged/debug/layout_abc_screen_simple_overlay_action_mode.xml.flat",
+        "source": "/home/sckang511/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/700950674e197ef9eea36a956f8da4c4/res/layout/abc_screen_simple_overlay_action_mode.xml"
     },
     {
         "merged": "/home/sckang511/Git/ICS372_P1/app/build/intermediates/res/merged/debug/drawable_abc_ratingbar_material.xml.flat",
@@ -1352,6 +1352,10 @@
         "source": "/home/sckang511/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/700950674e197ef9eea36a956f8da4c4/res/drawable-xxhdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
     },
     {
+        "merged": "/home/sckang511/Git/ICS372_P1/app/build/intermediates/res/merged/debug/layout_fragment_clinic_content.xml.flat",
+        "source": "/home/sckang511/Git/ICS372_P1/app/src/main/res/layout/fragment_clinic_content.xml"
+    },
+    {
         "merged": "/home/sckang511/Git/ICS372_P1/app/build/intermediates/res/merged/debug/layout_notification_template_part_time.xml.flat",
         "source": "/home/sckang511/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/9b1d7e127cb56218a7ee70b762a1e117/res/layout/notification_template_part_time.xml"
     },
@@ -1642,6 +1646,10 @@
     {
         "merged": "/home/sckang511/Git/ICS372_P1/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_googleg_standard_color_18.png.flat",
         "source": "/home/sckang511/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.0.aar/efeed18a07384f4d1eca79ddb2dd55bc/res/drawable-hdpi-v4/googleg_standard_color_18.png"
+    },
+    {
+        "merged": "/home/sckang511/Git/ICS372_P1/app/build/intermediates/res/merged/debug/layout_activity_create_reading.xml.flat",
+        "source": "/home/sckang511/Git/ICS372_P1/app/src/main/res/layout/activity_create_reading.xml"
     },
     {
         "merged": "/home/sckang511/Git/ICS372_P1/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
