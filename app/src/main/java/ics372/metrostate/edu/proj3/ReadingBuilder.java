@@ -21,6 +21,7 @@ public class ReadingBuilder {
     public void setReading_id(String id) { this.reading_id = id; }
     public void setReading_type(String type) { this.reading_type = type; }
     public void setPatient_id(String id) { this.patient_id = id; }
+    public void setReading_date(Long time) { this.reading_date = time; }
 
     public Reading build() {
         Reading r = null;
