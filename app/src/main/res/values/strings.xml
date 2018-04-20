@@ -18,10 +18,13 @@
     <string name="plainText_search_clinic">Search clinic</string>
     <string name="button_view_patients">View Patients</string>
     <string name="dialog_export_title">Export</string>
+    <string name="dialog_import_title">Import</string>
     <string name="dialog_export_message">Enter the name of the JSON file into which all relevant readings will be saved. The file will be saved in Download folder.</string>
+    <string name="dialog_import_message">Enter the name of the file to import.</string>
     <string name="button_ok">OK</string>
     <string name="button_cancel">Cancel</string>
     <string name="dialog_export_plainText">Enter name of JSON file</string>
+    <string name="dialog_import_plainText">Enter name of file</string>
     <string name="dialog_patient_title">Create a Patient</string>
     <string name="textView_status">Status:</string>
     <string name="plainText_enter_pID">Enter patient ID</string>

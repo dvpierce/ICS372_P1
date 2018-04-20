@@ -31,6 +31,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginTop="16dp"
             android:layout_weight="1"
+            android:onClick="importFile"
             android:text="@string/button_import" />
 
         <Button

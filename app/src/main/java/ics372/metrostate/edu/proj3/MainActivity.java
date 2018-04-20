@@ -17,13 +17,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Called when user taps the import button.
+     * Prompts Import Dialog
+     * @param view
+     */
+    public void importFile(View view) {
+        ImportFragment importDialog = new ImportFragment();
+        importDialog.show(getSupportFragmentManager(), "Import");
+    }
+
+    /**
      * Called when the user taps the export button
      * Prompts Export Dialog
      * @param view
      */
     public void exportFile(View view) {
-        DialogFragment exportDialog = new ExportFragment();
+        ExportFragment exportDialog = new ExportFragment();
         exportDialog.show(getSupportFragmentManager(), "Export");
+
     }
 
     /**

@@ -9,6 +9,11 @@ import org.json.JSONException;
 import com.google.gson.*;
 // import com.google.gson.JsonSyntaxException;
 
+import android.support.v4.content.*;
+import android.support.v4.app.*;
+import android.Manifest;
+import android.content.pm.PackageManager;
+
 import ics372.metrostate.edu.proj3.*;
 
 public class FileReader {
@@ -19,6 +24,11 @@ public class FileReader {
 
 	public static JsonObject read(String fileName) throws JsonIOException, JsonSyntaxException, IOException, JSONException
 	{
+	    /* Search internal and external storage for the filename provided, external first. */
+	    /* MainActivity should have already requested permissions. */
+
+	    
+
 		if (fileName.toLowerCase().endsWith("xml"))
 		{
 			return ReadXML.read(fileName);

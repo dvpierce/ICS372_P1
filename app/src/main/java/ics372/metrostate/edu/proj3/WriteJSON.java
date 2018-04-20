@@ -1,6 +1,7 @@
 package ics372.metrostate.edu.proj3;
 import java.io.FileWriter;
 import com.google.gson.JsonArray;
+import android.os.Environment;
 
 public class WriteJSON {
 
@@ -11,7 +12,19 @@ public class WriteJSON {
 	
 	public static String write(JsonArray JSONStructure, String filePath) {
 
-		// Create a new JSON file from the string of JSON object
+	    /* determine location to save data. */
+
+
+        // Is external storage available?
+        String state = Environment.getExternalStorageState();
+
+        // External storage is available:
+        if (Environment.MEDIA_MOUNTED.equals(state)) {
+
+        }
+
+
+        // Create a new JSON file from the string of JSON object
 		try {	
 			FileWriter writer = new FileWriter(filePath);
 			writer.write(JSONStructure.toString());
