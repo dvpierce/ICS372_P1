@@ -16,7 +16,7 @@ public class ReadJSON {
 		return;
 	}
 	
-	public static void read(String filePath) throws JsonIOException, JsonSyntaxException, FileNotFoundException {
+	public static Boolean read(String filePath) throws JsonIOException, JsonSyntaxException, FileNotFoundException {
 		// Parser parses the JSON file into a JSON tree
 		JsonParser parser = new JsonParser();
 		JsonElement jsontree = parser.parse(new FileReader(filePath));
@@ -25,6 +25,6 @@ public class ReadJSON {
 		JsonObject jo = jsontree.getAsJsonObject();
 
 		// System.out.println(jo.toString());
-		JSONLoader.load(jo);
+		return LoaderJSON.load(jo);
 	}
 }
