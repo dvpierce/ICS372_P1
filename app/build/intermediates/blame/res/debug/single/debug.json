@@ -1372,6 +1372,10 @@
         "source": "/home/sckang511/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/700950674e197ef9eea36a956f8da4c4/res/color/switch_thumb_material_dark.xml"
     },
     {
+        "merged": "/home/sckang511/Git/ICS372_P1/app/build/intermediates/res/merged/debug/layout_fragment_patient_content.xml.flat",
+        "source": "/home/sckang511/Git/ICS372_P1/app/src/main/res/layout/fragment_patient_content.xml"
+    },
+    {
         "merged": "/home/sckang511/Git/ICS372_P1/app/build/intermediates/res/merged/debug/drawable_abc_seekbar_tick_mark_material.xml.flat",
         "source": "/home/sckang511/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/700950674e197ef9eea36a956f8da4c4/res/drawable/abc_seekbar_tick_mark_material.xml"
     },
@@ -1776,6 +1780,10 @@
         "source": "/home/sckang511/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/700950674e197ef9eea36a956f8da4c4/res/color/switch_thumb_material_light.xml"
     },
     {
+        "merged": "/home/sckang511/Git/ICS372_P1/app/build/intermediates/res/merged/debug/layout_fragment_export_content.xml.flat",
+        "source": "/home/sckang511/Git/ICS372_P1/app/src/main/res/layout/fragment_export_content.xml"
+    },
+    {
         "merged": "/home/sckang511/Git/ICS372_P1/app/build/intermediates/res/merged/debug/color_abc_background_cache_hint_selector_material_dark.xml.flat",
         "source": "/home/sckang511/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/700950674e197ef9eea36a956f8da4c4/res/color/abc_background_cache_hint_selector_material_dark.xml"
     },
@@ -1926,9 +1934,5 @@
     {
         "merged": "/home/sckang511/Git/ICS372_P1/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_search_black_24dp.png.flat",
         "source": "/home/sckang511/Git/ICS372_P1/app/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_search_black_24dp.png"
-    },
-    {
-        "merged": "/home/sckang511/Git/ICS372_P1/app/build/intermediates/res/merged/debug/layout_fragment_export.xml.flat",
-        "source": "/home/sckang511/Git/ICS372_P1/app/src/main/res/layout/fragment_export.xml"
     }
 ]

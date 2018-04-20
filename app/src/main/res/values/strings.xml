@@ -18,8 +18,11 @@
     <string name="plainText_search_clinic">Search a clinic</string>
     <string name="button_view_patients">View Patients</string>
     <string name="dialog_export_title">Export into a JSON</string>
-    <string name="dialog_export_message">Please provide a name for the JSON file into which all data will be saved. The file will be saved in Download folder.</string>
+    <string name="dialog_export_message">Please provide a name of the JSON file into which all data will be saved. The file will be saved in Download folder.</string>
     <string name="button_ok">OK</string>
     <string name="button_cancel">Cancel</string>
     <string name="dialog_export_plainText">Specify the name of JSON file</string>
+    <string name="dialog_patient_title">Create a Patient</string>
+    <string name="textView_status">Status:</string>
+    <string name="plainText_enter_pID">Enter the patient ID</string>
 </resources>

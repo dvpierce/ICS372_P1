@@ -14,7 +14,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/layout_search"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -33,11 +35,13 @@
     <LinearLayout
         android:id="@+id/layout_search"
         android:layout_width="352dp"
-        android:layout_height="38dp"
+        android:layout_height="42dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/table_patient"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_patient">
 
@@ -74,13 +78,14 @@
     <TableLayout
         android:id="@+id/table_patient"
         android:layout_width="368dp"
-        android:layout_height="355dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/layout_button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_search">
 
@@ -91,6 +96,7 @@
         android:layout_width="368dp"
         android:layout_height="42dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
