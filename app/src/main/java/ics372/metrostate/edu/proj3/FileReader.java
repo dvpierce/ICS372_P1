@@ -6,8 +6,8 @@ import java.io.ObjectInputStream;
 
 import org.json.JSONException;
 
-import com.google.gson.JsonIOException;
-import com.google.gson.JsonSyntaxException;
+import com.google.gson.*;
+// import com.google.gson.JsonSyntaxException;
 
 import ics372.metrostate.edu.proj3.*;
 
@@ -17,7 +17,7 @@ public class FileReader {
 		return;
 	}
 
-	public static Object read(String fileName) throws JsonIOException, JsonSyntaxException, IOException, JSONException
+	public static JsonObject read(String fileName) throws JsonIOException, JsonSyntaxException, IOException, JSONException
 	{
 		if (fileName.toLowerCase().endsWith("xml"))
 		{

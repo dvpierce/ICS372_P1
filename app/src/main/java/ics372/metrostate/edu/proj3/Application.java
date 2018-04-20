@@ -1,5 +1,12 @@
 package ics372.metrostate.edu.proj3;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.*;
+
+
 import java.util.List;
+import java.util.Date;
+import java.io.*;
 
 public class Application {
 // This method prints out the readings. This is a string of the reading
@@ -26,15 +33,6 @@ public class Application {
 						long reading_date = reading.get("reading_date").getAsLong();
 						String reading_clinic = reading.get("reading_clinic").getAsString();
 
-						//
-//						System.out.println(patient_id);
-//						System.out.println(reading_type);
-//						System.out.println(reading_id);
-//						System.out.println(reading_value);
-//						System.out.println(reading_date);
-//						System.out.println(reading_clinic);
-						//
-						
 						// populate the java objects						
 						Trial.getInstance().getReadings().add( new Reading(patient_id, reading_type, reading_id, reading_value, reading_date, reading_clinic) );
 						Trial.getInstance().getPatients().add( new Patient(patient_id, PatientState.ACTIVE) );
@@ -152,26 +150,26 @@ public class Application {
 		ACTIVE, WITHDRAWN,FAILED, COMPLETED;
 	}
 
-	State state;
+	PatientState thisState;
 	public void States(String patient_id) {
 		List<Patient> patients = Trial.getInstance().getPatients();
 		for (Patient patient : patients) {
 			if (patient.getPatient_id().equals(patient_id))
-				switch (state) {
+				switch (thisState) {
 					case ACTIVE:
-						patients.add(new Patient(patient_id, true));
+						patients.add(new Patient(patient_id, thisState));
 						System.out.println ("Patient " + patient_id + " has been added and has been activated!");
 					break;
 					case FAILED:
-						patient.setPatient_active(false);
+						patient.setPatient_status(thisState);
 						System.out.println ("Patient " + patient_id + " has failed the Trial and deactivated");
 					break;
 					case COMPLETED:
-						patient.setPatient_active(false);
+						patient.setPatient_status(thisState);
 						System.out.println ("Patient " + patient_id + " has completed the Trial and thus not more active");
 					break;
 					case WITHDRAWN:
-						patient.setPatient_active(false);
+						patient.setPatient_status(thisState);
 						System.out.println  ("Patient " + patient_id + " has withdrawn from the Trial and thus deactivated");
 						default:
 						System.out.println("Patient " + patient_id + "counld not be found and cant be assigned a state in the Trial");
@@ -242,7 +240,7 @@ public class Application {
 	
 	public String addPatient(String patient_id ) {
 		List<Patient> patients = Trial.getInstance().getPatients();
-		patients.add(new Patient(patient_id, true));
+		patients.add(new Patient(patient_id, PatientState.ACTIVE ));
 		return "Patient has been added";
 	}
 	
