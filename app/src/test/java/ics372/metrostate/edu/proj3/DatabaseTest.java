@@ -12,22 +12,22 @@ import java.util.List;
 //import org.junit.jupiter.api.Test;
 
 
-public class TrialTest /*extends TestCase*/{
+public class DatabaseTest /*extends TestCase*/{
 
     private List<Patient> patients = new ArrayList<Patient>();
     private List<Reading> readings = new ArrayList<Reading>();
     private List <Clinic> clinics = new ArrayList<Clinic>();
-    private static Trial instance = null;
+    private static Database instance = null;
 
 	@Test
 	public void test() {
         //super(Trial.class);
 
 
-        Trial testTrial = new Trial();
+        Database database = new Database();
 
-        Patient pt1 = new Patient("1001", true);
-        Patient pt2 = new Patient("1002", true);
+        Patient pt1 = new Patient("1001", PatientState.ACTIVE);
+        Patient pt2 = new Patient("1002", PatientState.FAILED);
         patients.add(pt1);
         patients.add(pt2);
 
@@ -46,22 +46,22 @@ public class TrialTest /*extends TestCase*/{
 
 
 
-        testTrial.getInstance();
+        database.getInstance();
         TestCase.assertEquals(null, instance);
 
         //test for getPatients() method
-        testTrial.getPatients();
+        database.getPatients();
         TestCase.assertEquals(patients.size(),2);
         TestCase.assertEquals(patients.get(1),pt2);
 
         //test for getReadings() method
-        testTrial.getReadings();
+        database.getReadings();
         TestCase.assertEquals(readings.size(),2);
         TestCase.assertEquals(readings.get(0),rd1);
 
 
         //test for getClinics() method
-        testTrial.getClinics();
+        database.getClinics();
         TestCase.assertEquals(clinics.size(),2);
         TestCase.assertEquals(clinics.get(1),cl2);
 
@@ -71,16 +71,16 @@ public class TrialTest /*extends TestCase*/{
         Clinic cl4 = new Clinic("PV3");
         newClinic.add(cl3);
         newClinic.add(cl4);
-        testTrial.setClinics(newClinic);
+        database.setClinics(newClinic);
         TestCase.assertEquals(newClinic.size(),2);
         TestCase.assertEquals(newClinic.get(1),cl4);
 
 
         //test for setPatient() method
         List<Patient> newPatient = new ArrayList<Patient>();
-        Patient pt3 = new Patient("0011", true);
+        Patient pt3 = new Patient("0011", PatientState.ACTIVE);
         newPatient.add(pt3);
-        testTrial.setPatients(newPatient);
+        database.setPatients(newPatient);
         TestCase.assertEquals(newPatient.size(),1);
 
 
@@ -88,7 +88,7 @@ public class TrialTest /*extends TestCase*/{
         List<Reading> newReading = new ArrayList<Reading>();
         Reading rd3 = new Reading("0011","temp","T04","120/80",11/11/2017,"FV");
         newReading.add(rd3);
-        testTrial.setReadings(newReading);
+        database.setReadings(newReading);
         TestCase.assertEquals(newReading.get(0),rd3);
 
 

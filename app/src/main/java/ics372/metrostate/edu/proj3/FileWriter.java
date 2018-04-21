@@ -1,7 +1,6 @@
 package ics372.metrostate.edu.proj3;
 
 import com.google.gson.JsonArray;
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;

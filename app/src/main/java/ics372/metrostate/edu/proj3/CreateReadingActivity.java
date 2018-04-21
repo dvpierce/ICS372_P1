@@ -4,8 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +16,7 @@ public class CreateReadingActivity extends AppCompatActivity {
 
         // Retrieve active patient IDs
         List<String> patientIDs = new ArrayList<>();
-        List<Patient> patients = Trial.getInstance().getPatients();
+        List<Patient> patients = Database.getInstance().getPatients();
         for(Patient p : patients) {
             if(p.getPatientStatus() == PatientState.ACTIVE) {
                 patientIDs.add(p.getPatient_id());
@@ -27,7 +25,7 @@ public class CreateReadingActivity extends AppCompatActivity {
 
         // Retrieve all clinic IDs
         List<String> clinicIDs = new ArrayList<>();
-        List<Clinic> clinics = Trial.getInstance().getClinics();
+        List<Clinic> clinics = Database.getInstance().getClinics();
         for(Clinic c : clinics) {
             clinicIDs.add(c.getClinicID());
         }
