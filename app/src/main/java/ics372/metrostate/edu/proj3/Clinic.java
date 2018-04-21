@@ -2,6 +2,7 @@ package ics372.metrostate.edu.proj3;
 import java.io.Serializable;
 
 public class Clinic implements Serializable {
+
 	
 	private static final long serialVersionUID = -7837407116511669613L;
 	private String clinicID;
