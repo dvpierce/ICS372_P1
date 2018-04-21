@@ -1,22 +1,20 @@
 package ics372.metrostate.edu.proj3;
 
 import android.content.Intent;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import com.obsez.android.lib.filechooser.ChooserDialog;
-import java.io.File;
 import android.widget.Toast;
 
-import ics372.metrostate.edu.proj3.*;
+public class MainActivity extends AppCompatActivity implements IMainView {
 
-public class MainActivity extends AppCompatActivity {
+    MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        presenter = new MainPresenter(this, this);
     }
 
     /**
@@ -25,19 +23,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void importFile(View view) {
-        new ChooserDialog().with(this)
-                .withStartFile("/sdcard")
-                .withChosenListener(new ChooserDialog.Result() {
-                    @Override
-                    public void onChoosePath(String path, File pathFile) {
-                        try { FileReader.read(path); }
-                        catch (Exception e) {
-                            System.out.println(e.getStackTrace());
-                        }
-                    }
-                })
-                .build()
-                .show();
+        presenter.openFileChooser();
     }
 
     /**
@@ -48,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     public void exportFile(View view) {
         ExportFragment exportDialog = new ExportFragment();
         exportDialog.show(getSupportFragmentManager(), "Export");
-
     }
 
     /**
@@ -79,6 +64,16 @@ public class MainActivity extends AppCompatActivity {
     public void manageClinics(View view) {
         Intent intent = new Intent(this, ClinicActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void importSuccessful() {
+        Toast.makeText(this, "Import Successful!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void importFailed() {
+        Toast.makeText(this, "Import Failed!", Toast.LENGTH_SHORT).show();
     }
 
 }

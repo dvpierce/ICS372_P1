@@ -70,6 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
             android:layout_weight="1"
+            android:onClick="deleteReading"
             android:text="@string/button_delete" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
