@@ -25,36 +25,45 @@ public class FileReader {
 		return;
 	}
 
-	public static Boolean read(String filePath) throws JsonIOException, JsonSyntaxException, IOException, JSONException, ParserConfigurationException, SAXException {
-	    /** MainActivity passes path to a file, either XML or JSON.
-	     *
-         * Read the file in using the correct Reader.
-         *
-	     */
+	public static Boolean read(String filePath) {
+		/** MainActivity passes path to a file, either XML or JSON.
+		 *
+		 * Read the file in using the correct Reader.
+		 *
+		 */
 
-		if (filePath.toLowerCase().endsWith("xml"))
-		{
-			return ReadXML.read(filePath);
-		} else if (filePath.toLowerCase().endsWith("json"))
-		{
-            return ReadJSON.read(filePath);
-		} else {
-			System.out.println("File type could not be determined: please select a valid JSON file ending in \".json\", or a valid XML file ending in \".xml\".");
+		try {
+			if (filePath.toLowerCase().endsWith("xml"))
+			{
+				return ReadXML.read(filePath);
+			} else if (filePath.toLowerCase().endsWith("json"))
+			{
+				return ReadJSON.read(filePath);
+			} else {
+				System.out.println("File type could not be determined: please select a valid JSON file ending in \".json\", or a valid XML file ending in \".xml\".");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return false;
 	}
 	
-	public static Object deserialize() throws ClassNotFoundException, IOException
+	public static Object deserialize()
 	{
-        FileInputStream fis = new FileInputStream("state.ser");
-        ObjectInputStream oin = new ObjectInputStream(fis);
-         
-        Object thisTrial = oin.readObject();
-         
-        fis.close();
-        oin.close();
-        
-        return thisTrial;
+	    try {
+            FileInputStream fis = new FileInputStream("state.ser");
+            ObjectInputStream oin = new ObjectInputStream(fis);
+
+            Object thisTrial = oin.readObject();
+
+            fis.close();
+            oin.close();
+
+            return thisTrial;
+        } catch (Exception e) {
+	        e.printStackTrace();
+	        return null;
+        }
 	}
 	
 }
