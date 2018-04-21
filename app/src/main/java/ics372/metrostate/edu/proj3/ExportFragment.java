@@ -26,7 +26,6 @@ public class ExportFragment extends DialogFragment {
         // Pass null as the parent view because it's going in the dialog layout
         builder.setView(inflater.inflate(R.layout.fragment_export_content, null));
 
-
         // Create action buttons
         builder.setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {

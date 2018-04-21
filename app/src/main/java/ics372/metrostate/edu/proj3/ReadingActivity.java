@@ -24,4 +24,13 @@ public class ReadingActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CreateReadingActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * Called when the user taps the cancel button
+     * Deletes the selected reading
+     * @param view
+     */
+    public void deleteReading(View view) {
+
+    }
 }

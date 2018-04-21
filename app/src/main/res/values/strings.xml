@@ -40,4 +40,6 @@
     <string name="plainText_readingID">Enter reading ID</string>
     <string name="plainText_readingValue">Enter reading value</string>
     <string name="plainText_readingType">Enter reading type</string>
+    <string name="textView_date">Date: </string>
+    <string name="button_setDate">Set Date</string>
 </resources>
