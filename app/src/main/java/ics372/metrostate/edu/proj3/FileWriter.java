@@ -11,12 +11,12 @@ public class FileWriter {
 		return;
 	}
 
-	public static String write(JsonArray e, String fileName)
+	public static Boolean write(String fileName)
 	{
-		return WriteJSON.write(e, fileName);
+		return WriteJSON.write(fileName);
 	}
 	
-	public static String serialize(Object e) throws IOException
+	public static Boolean serialize(Object e) throws IOException
 	{
         //Saving of object in a file
         FileOutputStream fos = new FileOutputStream("state.ser");
@@ -25,7 +25,7 @@ public class FileWriter {
         oos.writeObject(e);
         oos.close();
         fos.close();
-        return "Data successfully serialized!";
+        return true;
 	}
 	
 }

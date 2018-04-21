@@ -49,7 +49,7 @@ public class LoaderJSON {
 
                     Reading tempReading = builder.build();
                     if ( tempReading != null ) {
-                        // Domain.AddReading(tempReading);
+                        Database.getInstance().addReadings(tempReading);
 
                     } else {
 

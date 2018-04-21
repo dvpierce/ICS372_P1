@@ -60,7 +60,7 @@ public class LoaderXML {
 
             Reading tempReading = builder.build();
             if ( tempReading != null ) {
-                // Domain.AddReading(tempReading);
+                Database.getInstance().addReadings(tempReading);
                 ReadingsFound++;
             } else {
                 continue;
