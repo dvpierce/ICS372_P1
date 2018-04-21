@@ -36,6 +36,16 @@ public class LoaderXML {
         }
         builder.setReading_clinic(ClinicID);
 
+        // Check to see if this clinic exists and create it, if it does not:
+        if ( DBQuery.clinicExists(ClinicID) ) {
+            // do nothing
+            assert true;
+        } else {
+            // Create/add the clinic.
+            Clinic clinicToAdd = new Clinic(ClinicID);
+            Database.getInstance().addClinics(clinicToAdd);
+        }
+
         // Find (filter out) the Readings.
         NodeList nList = doc.getElementsByTagName("Reading");
 
@@ -56,7 +66,32 @@ public class LoaderXML {
             builder.setReading_id(eElement.getAttribute("id"));
             builder.setReading_type(eElement.getAttribute("type"));
             builder.setReading_value(eElement.getElementsByTagName("Value").item(0).getTextContent());
-            builder.setPatient_id(eElement.getElementsByTagName("Patient").item(0).getTextContent());
+            String tempPatientID = eElement.getElementsByTagName("Patient").item(0).getTextContent();
+            builder.setPatient_id(tempPatientID);
+
+            // Verify that the patient for this reading exists.
+            // If it does not exist, add it.
+            // If it does exist, check whether patient is active or completed
+                // skip readings for non-Active/Completed patients.
+
+            if ( DBQuery.patientExists( tempPatientID ) ) {
+
+                // Patient exists:
+                if ( ( DBQuery.patientActive( tempPatientID ) ) ||
+                        ( DBQuery.patientComplete( tempPatientID ) ) ) {
+                    // Patient is active or complete. Do nothing.
+                    assert true;
+                } else {
+                    // Patient exists, but is in an invalid state.
+                    // Do not add the reading.
+                    continue;
+                }
+            } else {
+
+                // Patient does not exist:
+                // Create the patient and proceed.
+                Database.getInstance().getPatients().add(new Patient(tempPatientID, PatientState.ACTIVE));
+            }
 
             Reading tempReading = builder.build();
             if ( tempReading != null ) {

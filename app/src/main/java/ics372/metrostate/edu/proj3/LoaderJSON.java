@@ -40,19 +40,56 @@ public class LoaderJSON {
                 try {
                     JsonObject reading = (JsonObject) o;
                     // extract data from each reading
-                    builder.setReading_clinic(reading.get("reading_clinic").getAsString());
-                    builder.setPatient_id(reading.get("patient_id").getAsString());
+                    String tempClinicID = reading.get("reading_clinic").getAsString();
+                    builder.setReading_clinic(tempClinicID);
+                    String tempPatientID = reading.get("patient_id").getAsString();
+                    builder.setPatient_id( tempPatientID );
                     builder.setReading_id(reading.get("reading_id").getAsString());
                     builder.setReading_type(reading.get("reading_type").getAsString());
                     builder.setReading_value(reading.get("reading_value").getAsString());
                     builder.setReading_date(reading.get("reading_date").getAsLong());
+
+                    // Check to see if this clinic exists and create it, if it does not:
+                    if ( DBQuery.clinicExists(tempClinicID) ) {
+                        // do nothing
+                        assert true;
+                    } else {
+                        // Create/add the clinic.
+                        Clinic clinicToAdd = new Clinic(tempClinicID);
+                        Database.getInstance().addClinics(clinicToAdd);
+                    }
+
+                    // Verify that the patient for this reading exists.
+                    // If it does not exist, add it.
+                    // If it does exist, check whether patient is active or completed
+                    // skip readings for non-Active/Completed patients.
+
+                    if ( DBQuery.patientExists( tempPatientID ) ) {
+
+                        // Patient exists:
+                        if ( ( DBQuery.patientActive( tempPatientID ) ) ||
+                                ( DBQuery.patientComplete( tempPatientID ) ) ) {
+                            // Patient is active or complete. Do nothing.
+                            assert true;
+                        } else {
+                            // Patient exists, but is in an invalid state.
+                            // Do not add the reading.
+                            continue;
+                        }
+                    } else {
+
+                        // Patient does not exist:
+                        // Create the patient and proceed.
+                        Database.getInstance().getPatients().add(new Patient(tempPatientID, PatientState.ACTIVE));
+                    }
 
                     Reading tempReading = builder.build();
                     if ( tempReading != null ) {
                         Database.getInstance().addReadings(tempReading);
 
                     } else {
-
+                        // do nothing.
+                        assert true;
                     }
 
                 } catch (NullPointerException f) {
