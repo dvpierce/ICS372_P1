@@ -4,19 +4,19 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Trial implements Serializable {
+public class Database implements Serializable {
 	
 	private static final long serialVersionUID = 8968341436485461953L;
 	private List<Patient> patients = new ArrayList<Patient>();
 	private List<Reading> readings = new ArrayList<Reading>();
 	private List <Clinic> clinics = new ArrayList<Clinic>();
-	private static Trial instance = null;
+	private static Database instance = null;
 	
-	public Trial() {}
+	public Database() {}
 	
-	public static Trial getInstance() {
+	public static Database getInstance() {
 		if (instance == null) {
-			instance = new Trial();		
+			instance = new Database();
 		}	
 		return instance;
 	}
