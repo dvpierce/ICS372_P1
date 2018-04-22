@@ -11,7 +11,7 @@
         android:layout_width="352dp"
         android:layout_height="48dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/table_reading"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,20 +29,96 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <TableLayout
-        android:id="@+id/table_reading"
-        android:layout_width="352dp"
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:scrollbars="none"
         app:layout_constraintBottom_toTopOf="@+id/layout_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_title">
 
-    </TableLayout>
+        <TableLayout
+            android:id="@+id/table_layout"
+            android:layout_width="384dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/layout_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_title">
+
+            <TableRow
+                android:id="@+id/table_row1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="serif"
+                    android:text="ID"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="serif"
+                    android:text="Type"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="serif"
+                    android:text="Value"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/patient"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="serif"
+                    android:text="Patient"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/clinic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="serif"
+                    android:text="Clinic"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="serif"
+                    android:text="Date"
+                    android:textColor="#000" />
+
+
+            </TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dip"
+                android:background="#4286f4" />
+        </TableLayout>
+
+    </ScrollView>
+
 
     <LinearLayout
         android:id="@+id/layout_button"
@@ -52,8 +128,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/table_reading">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/button_create"

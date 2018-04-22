@@ -8,7 +8,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements IMainView {
 
-    MainPresenter presenter;
+    private MainPresenter presenter;
+    public static final String ADDRESS = "MAIN";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
      */
     public void exportFile(View view) {
         ExportFragment exportDialog = new ExportFragment();
+        exportDialog.setPresenter(presenter);
         exportDialog.show(getSupportFragmentManager(), "Export");
     }
 
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
      */
     public void manageReadings(View view) {
         Intent intent = new Intent(this, ReadingActivity.class);
+        intent.putExtra(IntentReader.SOURCE_ADDRESS, ADDRESS);
         startActivity(intent);
     }
 
@@ -53,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
      */
     public void managePatients(View view) {
         Intent intent = new Intent(this, PatientActivity.class);
+        intent.putExtra(IntentReader.SOURCE_ADDRESS, ADDRESS);
         startActivity(intent);
     }
 
@@ -76,4 +80,13 @@ public class MainActivity extends AppCompatActivity implements IMainView {
         Toast.makeText(this, "Import Failed!", Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void exportSuccessful() {
+        Toast.makeText(this, "Export Successful!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void exportFailed() {
+        Toast.makeText(this, "Export Failed!", Toast.LENGTH_SHORT).show();
+    }
 }

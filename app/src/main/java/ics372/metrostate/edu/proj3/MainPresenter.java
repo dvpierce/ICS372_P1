@@ -34,4 +34,13 @@ public class MainPresenter {
                 .build()
                 .show();
     }
+
+    public void exportFile(String fileName) {
+        boolean isSuccessful = FileWriter.write(fileName);
+        if(isSuccessful) {
+            view.exportSuccessful();
+        } else {
+            view.exportFailed();
+        }
+    }
 }
