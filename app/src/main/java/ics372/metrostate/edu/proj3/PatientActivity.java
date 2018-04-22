@@ -8,6 +8,8 @@ import android.view.View;
 
 public class PatientActivity extends AppCompatActivity {
 
+    public static final String ADDRESS = "PATIENT";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,5 +1,8 @@
 package ics372.metrostate.edu.proj3;
 
+import android.provider.ContactsContract;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class DBQuery {
@@ -109,4 +112,26 @@ public class DBQuery {
         return false;
     }
 
+    public static List<Reading> getPatientReadings(String id) {
+        List<Reading> allReadings = Database.getInstance().getReadings();
+        List<Reading> patientReadings = new ArrayList<>();
+        for(Reading r : allReadings) {
+            if(r.getPatient_id().equals(id)) patientReadings.add(r);
+        }
+        return patientReadings;
+    }
+
+    public static boolean deleteReading(String id) {
+        List<Reading> allReadings = Database.getInstance().getReadings();
+        Reading target = null;
+        for(Reading r : allReadings) {
+            if(r.getReading_id().equals(id)) target = r;
+        }
+        if(target != null) {
+            allReadings.remove(target);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
