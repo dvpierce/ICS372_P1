@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
      */
     public void manageClinics(View view) {
         Intent intent = new Intent(this, ClinicActivity.class);
+        intent.putExtra(IntentReader.SOURCE_ADDRESS, ADDRESS);
         startActivity(intent);
     }
 

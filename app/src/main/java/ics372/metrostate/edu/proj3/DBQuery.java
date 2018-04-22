@@ -48,6 +48,22 @@ public class DBQuery {
         return false;
     }
 
+    public static Patient getPatient(String id) {
+        List<Patient> patients = Database.getInstance().getPatients();
+
+        // For each patient in the list
+        for ( Patient p : patients )
+        {
+            // Check if the patient ID matches the requested ID.
+            if ( p.getPatient_id().equals(id) )
+            {
+                // Patient with matching ID is found.
+                return p;
+            }
+        }
+        return null;
+    }
+
     // Return true if patient exists AND (!) is active.
     public static Boolean patientActive(String patientQueryID) {
 
@@ -121,6 +137,15 @@ public class DBQuery {
         return patientReadings;
     }
 
+    public static List<Patient> getClinicPatients(String id) {
+        List<Patient> allPatients = Database.getInstance().getPatients();
+        List<Patient> clinicPatients = new ArrayList<>();
+        for(Patient p : allPatients) {
+            if(p.getClinic_id().equals(id)) clinicPatients.add(p);
+        }
+        return clinicPatients;
+    }
+
     public static boolean deleteReading(String id) {
         List<Reading> allReadings = Database.getInstance().getReadings();
         Reading target = null;
@@ -129,6 +154,34 @@ public class DBQuery {
         }
         if(target != null) {
             allReadings.remove(target);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean deletePatient(String id) {
+        List<Patient> allPatients = Database.getInstance().getPatients();
+        Patient target = null;
+        for(Patient r : allPatients) {
+            if(r.getPatient_id().equals(id)) target = r;
+        }
+        if(target != null) {
+            allPatients.remove(target);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean deleteClinic(String id) {
+        List<Clinic> allClinics = Database.getInstance().getClinics();
+        Clinic target = null;
+        for(Clinic c : allClinics) {
+            if(c.getClinicID().equals(id)) target = c;
+        }
+        if(target != null) {
+            allClinics.remove(target);
             return true;
         } else {
             return false;
