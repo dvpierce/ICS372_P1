@@ -56,7 +56,7 @@ public class LoaderJSON {
                     } else {
                         // Create/add the clinic.
                         Clinic clinicToAdd = new Clinic(tempClinicID);
-                        Database.getInstance().addClinics(clinicToAdd);
+                        Database.getInstance().addClinic(clinicToAdd);
                     }
 
                     // Verify that the patient for this reading exists.
@@ -80,12 +80,12 @@ public class LoaderJSON {
 
                         // Patient does not exist:
                         // Create the patient and proceed.
-                        Database.getInstance().getPatients().add(new Patient(tempPatientID, PatientState.ACTIVE));
+                        Database.getInstance().getPatients().add(new Patient(tempPatientID, PatientState.ACTIVE, tempClinicID));
                     }
 
                     Reading tempReading = builder.build();
                     if ( tempReading != null ) {
-                        Database.getInstance().addReadings(tempReading);
+                        Database.getInstance().addReading(tempReading);
 
                     } else {
                         // do nothing.

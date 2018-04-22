@@ -43,7 +43,7 @@ public class LoaderXML {
         } else {
             // Create/add the clinic.
             Clinic clinicToAdd = new Clinic(ClinicID);
-            Database.getInstance().addClinics(clinicToAdd);
+            Database.getInstance().addClinic(clinicToAdd);
         }
 
         // Find (filter out) the Readings.
@@ -90,12 +90,12 @@ public class LoaderXML {
 
                 // Patient does not exist:
                 // Create the patient and proceed.
-                Database.getInstance().getPatients().add(new Patient(tempPatientID, PatientState.ACTIVE));
+                Database.getInstance().getPatients().add(new Patient(tempPatientID, PatientState.ACTIVE, ClinicID));
             }
 
             Reading tempReading = builder.build();
             if ( tempReading != null ) {
-                Database.getInstance().addReadings(tempReading);
+                Database.getInstance().addReading(tempReading);
                 ReadingsFound++;
             } else {
                 continue;

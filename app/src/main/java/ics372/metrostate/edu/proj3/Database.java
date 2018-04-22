@@ -26,8 +26,8 @@ public class Database implements Serializable {
 	public List<Clinic> getClinics() { return clinics; }
 
 	public void addPatient(Patient p) { patients.add(p); }
-	public void addReadings(Reading r) { readings.add(r); }
-	public void addClinics(Clinic c) { clinics.add(c); }
+	public void addReading(Reading r) { readings.add(r); }
+	public void addClinic(Clinic c) { clinics.add(c); }
 	
 	public void setPatients(List<Patient> newPatients) { patients = newPatients; }
 	public void setReadings(List<Reading> newReadings) { readings = newReadings; }
