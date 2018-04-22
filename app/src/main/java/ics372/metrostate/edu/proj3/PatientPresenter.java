@@ -19,6 +19,10 @@ public class PatientPresenter {
         this.table = (TableLayout) activity.findViewById(R.id.table_layout);
     }
 
+    public PatientActivity getActivity() {
+        return this.activity;
+    }
+
     public void createTable() {
         view.startProgress();
         String source = IntentReader.getSourceAddress(activity.getIntent());
@@ -69,6 +73,38 @@ public class PatientPresenter {
             view.searchSuccessful(id);
         } else {
             view.searchFailed();
+        }
+    }
+
+    public void createPatient(String patientID, PatientState state) {
+        if(patientID.equals("")) {
+            view.patientCreationFailed();
+            return;
+        } else {
+            DBQuery.addPatient(new Patient(patientID, state, "-1"));
+            view.patientCreated();
+        }
+    }
+
+    public void editPatient(PatientState state) {
+        if (selectedPatient != null) {
+            boolean isSuccessful = DBQuery.changePatientStatus(selectedPatient, state);
+            if(isSuccessful) {
+                view.editSuccessful();
+            } else {
+                view.editFailed();
+            }
+        } else {
+            view.nonselected();
+        }
+    }
+
+    public boolean hasSelection() {
+        if (selectedPatient != null) {
+            return true;
+        } else {
+            view.nonselected();
+            return false;
         }
     }
 

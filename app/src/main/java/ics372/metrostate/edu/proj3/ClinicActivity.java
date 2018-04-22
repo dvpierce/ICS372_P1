@@ -29,7 +29,8 @@ public class ClinicActivity extends AppCompatActivity implements IClinicView {
      * @param view
      */
     public void createClinic(View view) {
-        DialogFragment clinicDialog = new ClinicFragment();
+        ClinicFragment clinicDialog = new ClinicFragment();
+        clinicDialog.setPresenter(presenter);
         clinicDialog.show(getSupportFragmentManager(), "Create Clinic");
     }
 
@@ -51,6 +52,11 @@ public class ClinicActivity extends AppCompatActivity implements IClinicView {
         presenter.viewPatients();
     }
 
+    /**
+     * Called when the user taps the search button
+     * Searches the clinic
+     * @param view
+     */
     public void searchClinic(View view) { presenter.searchClinic(); }
 
     @Override
@@ -93,4 +99,15 @@ public class ClinicActivity extends AppCompatActivity implements IClinicView {
     public void searchFailed() {
         Toast.makeText(this, "Search Failed!", Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void clinicCreated() {
+        Toast.makeText(this, "Successfully Created!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void clinicCreationFailed() {
+        Toast.makeText(this, "Failed! Please make sure inputs are valid!", Toast.LENGTH_SHORT).show();
+    }
+
 }

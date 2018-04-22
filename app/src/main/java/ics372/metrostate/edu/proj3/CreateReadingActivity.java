@@ -7,53 +7,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class CreateReadingActivity extends AppCompatActivity {
+public class CreateReadingActivity extends AppCompatActivity implements ICreateReadingView {
+
+    private CreateReadingPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_reading);
-
-        /**
-         * UPDATE REQUIRED
-         * TESTING PURPOSES
-         */
-        // Retrieve active patient IDs
-        List<String> patientIDs = new ArrayList<>();
-        List<Patient> patients = Database.getInstance().getPatients();
-        for(Patient p : patients) {
-            if(p.getPatientStatus() == PatientState.ACTIVE) {
-                patientIDs.add(p.getPatient_id());
-            }
-        }
-
-        /**
-         * UPDATE REQUIRED
-         * TESTING PURPOSES
-         */
-        // Retrieve all clinic IDs
-        List<String> clinicIDs = new ArrayList<>();
-        List<Clinic> clinics = Database.getInstance().getClinics();
-        for(Clinic c : clinics) {
-            clinicIDs.add(c.getClinicID());
-        }
-
-        // Create patient spinner
-        Spinner patientSpinner = (Spinner) findViewById(R.id.spinner_pID);
-        ArrayAdapter<String> patientAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, patientIDs);
-        patientAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        patientSpinner.setAdapter(patientAdapter);
-
-        // Create clinic spinner
-        Spinner clinicSpinner = (Spinner) findViewById(R.id.spinner_cID);
-        ArrayAdapter<String> clinicAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, clinicIDs);
-        clinicAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        clinicSpinner.setAdapter(clinicAdapter);
-
+        presenter = new CreateReadingPresenter(this, this);
+        presenter.createPatientSpinner();
+        presenter.createClinicSpinner();
     }
 
     /**
@@ -62,7 +32,8 @@ public class CreateReadingActivity extends AppCompatActivity {
      * @param view
      */
     public void setDate(View view) {
-        DialogFragment datePicker = new DatePickerFragment();
+        DatePickerFragment datePicker = new DatePickerFragment();
+        datePicker.setPresenter(presenter);
         datePicker.show(getSupportFragmentManager(), "Set Date");
     }
 
@@ -72,7 +43,7 @@ public class CreateReadingActivity extends AppCompatActivity {
      * @param view
      */
     public void createReading(View view) {
-
+        presenter.createReading();
     }
 
     /**
@@ -82,6 +53,21 @@ public class CreateReadingActivity extends AppCompatActivity {
      */
     public void cancel(View view) {
         finish();
+    }
+
+    @Override
+    public void createSuccessful() {
+        Toast.makeText(this, "Created Successfully!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void createFailed() {
+        Toast.makeText(this, "Failed! Please make sure all inputs are entered!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void dateSelected(String date) {
+        Toast.makeText(this, "Date: " + date + " set!", Toast.LENGTH_SHORT).show();
     }
 
 }

@@ -34,12 +34,12 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editText_id"
+                android:id="@+id/editText_c_reading_id"
                 android:layout_width="275dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/plainText_clinic"
+                android:hint="@string/plainText_readingID"
                 android:inputType="textPersonName" />
         </LinearLayout>
 
@@ -63,7 +63,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editText_type"
+                android:id="@+id/editText_c_reading_type"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -92,7 +92,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editText_value"
+                android:id="@+id/editText_c_reading_value"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -121,7 +121,7 @@
                 android:textSize="18sp" />
 
             <Spinner
-                android:id="@+id/spinner_pID"
+                android:id="@+id/spinner_c_pID"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
@@ -147,7 +147,7 @@
                 android:textSize="18sp" />
 
             <Spinner
-                android:id="@+id/spinner_cID"
+                android:id="@+id/spinner_c_cID"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />

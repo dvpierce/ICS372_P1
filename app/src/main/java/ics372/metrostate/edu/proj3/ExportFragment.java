@@ -38,7 +38,6 @@ public class ExportFragment extends DialogFragment {
         view.findViewById(R.id.ok_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                assert plainText != null;
                 String fileName = plainText.getText().toString();
                 presenter.exportFile(fileName);
                 getDialog().dismiss();

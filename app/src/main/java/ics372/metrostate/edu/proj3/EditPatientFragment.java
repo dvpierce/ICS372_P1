@@ -16,7 +16,7 @@ import android.widget.Spinner;
 
 import java.util.Arrays;
 
-public class PatientFragment extends DialogFragment {
+public class EditPatientFragment extends DialogFragment {
 
     private PatientPresenter presenter;
 
@@ -27,7 +27,7 @@ public class PatientFragment extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_patient_content, container);
+        return inflater.inflate(R.layout.fragment_edit_patient, container);
     }
 
     @Override
@@ -37,26 +37,22 @@ public class PatientFragment extends DialogFragment {
         getDialog().setTitle(R.string.dialog_patient_title);
 
         // Create the spinner
-        final Spinner spinner = (Spinner) getView().findViewById(R.id.spinner);
+        final Spinner spinner = (Spinner) getView().findViewById(R.id.spinner_pEdit);
         ArrayAdapter<PatientState> dataAdapter = new ArrayAdapter<PatientState>(getActivity(), android.R.layout.simple_spinner_item, PatientState.values());
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter);
 
-        // edit text
-        final EditText plainText = view.findViewById(R.id.editText_p_id);
-
         // set buttons on action
-        view.findViewById(R.id.button_create_p).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.button_edit_pEdit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String patientID = plainText.getText().toString();
                 PatientState state = StateConverter.convertString(spinner.getSelectedItem().toString());
-                presenter.createPatient(patientID, state);
+                presenter.editPatient(state);
                 getDialog().dismiss();
             }
         });
 
-        view.findViewById(R.id.button_cancel_p).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.button_cancel_pEdit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getDialog().dismiss();

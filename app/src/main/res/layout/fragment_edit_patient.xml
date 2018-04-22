@@ -5,53 +5,50 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
-        android:id="@+id/layout_id"
-        android:layout_width="307dp"
+        android:id="@+id/layout_status"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView_id"
-            android:layout_width="91dp"
+            android:id="@+id/textView_status"
+            android:layout_width="183dp"
             android:layout_height="match_parent"
-            android:layout_gravity="bottom"
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
             android:layout_weight="1"
-            android:text="@string/textView_id"
+            android:text="@string/textView_status"
             android:textSize="18sp" />
 
-        <EditText
-            android:id="@+id/editText_id_enterClinic"
-            android:layout_width="wrap_content"
+        <Spinner
+            android:id="@+id/spinner_pEdit"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="@string/plainText_clinic"
-            android:inputType="textPersonName" />
+            android:layout_weight="1" />
+
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button_cancel_fc"
+            android:id="@+id/button_cancel_pEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/button_cancel" />
 
         <Button
-            android:id="@+id/button_create_fc"
+            android:id="@+id/button_edit_pEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/button_create" />
+            android:text="@string/button_edit" />
     </LinearLayout>
 
 </LinearLayout>
