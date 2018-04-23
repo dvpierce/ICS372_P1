@@ -35,6 +35,7 @@ public class LoaderJSON {
 
         JsonArray ja;
         try {
+            System.out.println(jo.toString());
             ja = jo.get("patient_readings").getAsJsonArray();
             for(Object o : ja) {
                 try {

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import java.io.File;
+
 public class MainActivity extends AppCompatActivity implements IMainView {
 
     private MainPresenter presenter;
@@ -16,6 +18,22 @@ public class MainActivity extends AppCompatActivity implements IMainView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         presenter = new MainPresenter(this, this);
+        this.deserializeNow();
+    }
+
+    private void serializeNow() {
+        File localStoragePath = getFilesDir();
+        String LCSFile = localStoragePath.getAbsolutePath().toString() + "/state.ser";
+        System.out.println("Serializing to: " + LCSFile);
+        FileWriter.serialize(LCSFile);
+    }
+
+    private void deserializeNow() {
+        File localStoragePath = getFilesDir();
+        String LCSFile = localStoragePath.getAbsolutePath().toString() + "/state.ser";
+        System.out.println("Loading state from: " + LCSFile);
+        FileReader.deserialize(LCSFile);
+
     }
 
     /**
@@ -25,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
      */
     public void importFile(View view) {
         presenter.openFileChooser();
+        this.serializeNow();
     }
 
     /**
@@ -36,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
         ExportFragment exportDialog = new ExportFragment();
         exportDialog.setPresenter(presenter);
         exportDialog.show(getSupportFragmentManager(), "Export");
+        this.serializeNow();
     }
 
     /**

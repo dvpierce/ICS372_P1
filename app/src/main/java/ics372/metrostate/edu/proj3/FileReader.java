@@ -37,10 +37,12 @@ public class FileReader {
 		try {
 			if (filePath.toLowerCase().endsWith("xml"))
 			{
-				return ReadXML.read(filePath);
+				Boolean result = ReadXML.read(filePath);
+                return result;
 			} else if (filePath.toLowerCase().endsWith("json"))
 			{
-				return ReadJSON.read(filePath);
+				Boolean result = ReadJSON.read(filePath);
+                return result;
 			} else {
 				System.out.println("File type could not be determined: please select a valid JSON file ending in \".json\", or a valid XML file ending in \".xml\".");
 			}
@@ -50,21 +52,23 @@ public class FileReader {
 		return false;
 	}
 	
-	public static Object deserialize()
+	public static Boolean deserialize(String filePath)
 	{
 	    try {
-            FileInputStream fis = new FileInputStream("state.ser");
+            FileInputStream fis = new FileInputStream(filePath);
             ObjectInputStream oin = new ObjectInputStream(fis);
 
-            Object thisTrial = oin.readObject();
+            Object thisDatabase = oin.readObject();
 
             fis.close();
             oin.close();
 
-            return thisTrial;
+            Database.setSelf((Database) thisDatabase);
+
+            return true;
         } catch (Exception e) {
 	        e.printStackTrace();
-	        return null;
+	        return false;
         }
 	}
 	

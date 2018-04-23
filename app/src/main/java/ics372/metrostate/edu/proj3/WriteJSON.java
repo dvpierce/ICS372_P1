@@ -50,7 +50,7 @@ public class WriteJSON {
                 try {
                     System.out.println("Attempting to write: " + filePath);
                     File outputFile = new File(filePath);
-                    FileWriter writer = new FileWriter(outputFile, true);
+                    FileWriter writer = new FileWriter(outputFile, false);
                     writer.write(JSONOutput);
 
                     writer.close();
