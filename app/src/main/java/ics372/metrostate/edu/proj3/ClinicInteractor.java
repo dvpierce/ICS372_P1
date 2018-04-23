@@ -35,9 +35,9 @@ public class ClinicInteractor {
          *
          * Test data
          */
-        for (int i = 0; i < 20; i ++) {
-            clinics.add(new Clinic(Integer.toString(i)));
-        }
+//        for (int i = 0; i < 20; i ++) {
+//            clinics.add(new Clinic(Integer.toString(i)));
+//        }
 
         int index = STARTING_INDEX;
         for(Clinic c : clinics) {

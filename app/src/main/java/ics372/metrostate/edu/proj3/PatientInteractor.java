@@ -35,9 +35,9 @@ public class PatientInteractor {
          *
          * Test data
          */
-        for (int i = 0; i < 20; i ++) {
-            patients.add(new Patient(Integer.toString(i + 1), PatientState.ACTIVE, Integer.toString(5)));
-        }
+//        for (int i = 0; i < 20; i ++) {
+//            patients.add(new Patient(Integer.toString(i + 1), PatientState.ACTIVE, Integer.toString(5)));
+//        }
 
         int index = STARTING_INDEX;
         for(Patient p : patients) {

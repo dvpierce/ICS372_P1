@@ -34,9 +34,9 @@ public class ReadingInteractor {
         /**
          * Test data
          */
-        for (int i = 0; i < 100; i ++) {
-            readings.add(new Reading("5", "Weight", Integer.toString(i + 1), "33.5", 345235234, "324123"));
-        }
+//        for (int i = 0; i < 100; i ++) {
+//            readings.add(new Reading("5", "Weight", Integer.toString(i + 1), "33.5", 345235234, "324123"));
+//        }
 
         int index = STARTING_INDEX;
         for(Reading r : readings) {
