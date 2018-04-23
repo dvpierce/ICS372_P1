@@ -16,15 +16,30 @@ public class ReadJSON {
 		return;
 	}
 	
-	public static Boolean read(String filePath) throws JsonIOException, JsonSyntaxException, FileNotFoundException {
+	public static Boolean read(String filePath) {
 		// Parser parses the JSON file into a JSON tree
 		JsonParser parser = new JsonParser();
-		JsonElement jsontree = parser.parse(new FileReader(filePath));
+		System.out.println("Loading file...");
+        JsonElement jsontree;
+        try {
+		    jsontree = parser.parse(new FileReader(filePath));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
 
 		// Convert the JSON tree to JSON object
-		JsonObject jo = jsontree.getAsJsonObject();
+		System.out.println("Converting tree to object.");
+        JsonObject jo;
+		try {
+		    jo = jsontree.getAsJsonObject();
+        } catch (Exception e) {
+		    e.printStackTrace();
+		    return false;
+        }
+        System.out.println(jo.toString());
+        System.out.println("Calling LoaderJSON...");
 
-		// System.out.println(jo.toString());
 		return LoaderJSON.load(jo);
 	}
 }

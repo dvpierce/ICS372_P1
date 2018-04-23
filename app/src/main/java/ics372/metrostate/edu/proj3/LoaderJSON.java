@@ -80,11 +80,13 @@ public class LoaderJSON {
 
                         // Patient does not exist:
                         // Create the patient and proceed.
+                        System.out.println("Patient " + (String) tempPatientID + " does not exist. Adding.");
                         Database.getInstance().getPatients().add(new Patient(tempPatientID, PatientState.ACTIVE, tempClinicID));
                     }
 
                     Reading tempReading = builder.build();
                     if ( tempReading != null ) {
+                        System.out.println("Adding reading.");
                         Database.getInstance().addReading(tempReading);
 
                     } else {
@@ -104,8 +106,7 @@ public class LoaderJSON {
             return true;
         } catch (Exception e) {
             // Well, okay, so if we get here, there was no patient_readings key.
-            // That probably means we got an XML file in the other file format.
-            System.out.println("Formatting of this is not consistent with JSON file format. Proceeding in XML import mode.");
+            System.out.println("Formatting of this is not consistent with JSON file format.");
             return false;
         }
     }

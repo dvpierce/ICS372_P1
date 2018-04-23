@@ -19,19 +19,23 @@ public class WriteJSON {
             // Find readings list to write to disk:
             List<Reading> readings = Database.getInstance().getReadings();
 
+            System.out.println(readings.size());
+
             // Is external storage available?
             String state = Environment.getExternalStorageState();
 
             // External storage is available:
             if (Environment.MEDIA_MOUNTED.equals(state)) {
-                JsonArray ja = new JsonArray();
+                // JsonArray ja = new JsonArray();
                 JsonObject jo = new JsonObject();
                 Gson gson = new Gson();
 
-                jo.add("patient_readings", gson.toJsonTree(Database.getInstance().getReadings()));
-                ja.add(jo);
 
-                String JSONOutput = ja.toString();
+                jo.add("patient_readings", gson.toJsonTree(readings) );
+                // ja.add(jo);
+
+                String JSONOutput = jo.toString();
+                System.out.println(JSONOutput);
 
                 // Create a new JSON file from the string of JSON object
                 try {
@@ -40,6 +44,7 @@ public class WriteJSON {
                     writer.close();
                     return true;
                 } catch(Exception e) {
+                    System.out.println("File output error.");
                     e.printStackTrace();
                     return false;
                 }

@@ -32,6 +32,8 @@ public class FileReader {
 		 *
 		 */
 
+		System.out.println("Reading file: " + filePath);
+
 		try {
 			if (filePath.toLowerCase().endsWith("xml"))
 			{
