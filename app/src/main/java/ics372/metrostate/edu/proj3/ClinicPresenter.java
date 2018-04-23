@@ -69,4 +69,14 @@ public class ClinicPresenter {
         }
     }
 
+    public void createClinic(String clinicID) {
+        if(clinicID.equals("") || clinicID == null) {
+            view.clinicCreationFailed();
+            return;
+        } else {
+            DBQuery.addClinic( new Clinic(clinicID) );
+            view.clinicCreated();
+        }
+    }
+
 }

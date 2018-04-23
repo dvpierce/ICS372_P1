@@ -96,6 +96,21 @@ public class DBQuery {
         return false;
     }
 
+    public static List<Patient> getActivePatients() {
+        List<Patient> patients = Database.getInstance().getPatients();
+        List<Patient> activePatients = new ArrayList<>();
+        for(Patient p : patients) {
+            if(p.getPatientStatus() == PatientState.ACTIVE) {
+                activePatients.add(p);
+            }
+        }
+        return activePatients;
+    }
+
+    public static List<Clinic> getClinics() {
+        return Database.getInstance().getClinics();
+    }
+
     // Return true if patient exists AND (!) is active.
     public static Boolean patientComplete(String patientQueryID) {
 
@@ -186,5 +201,31 @@ public class DBQuery {
         } else {
             return false;
         }
+    }
+
+    public static void addReading(Reading reading) {
+        List<Reading> readings = Database.getInstance().getReadings();
+        readings.add(reading);
+    }
+
+    public static void addPatient(Patient patient) {
+        List<Patient> patients = Database.getInstance().getPatients();
+        patients.add(patient);
+    }
+
+    public static void addClinic(Clinic clinic) {
+        List<Clinic> clinics = Database.getInstance().getClinics();
+        clinics.add(clinic);
+    }
+
+    public static boolean changePatientStatus(String id, PatientState state) {
+        List<Patient> patients = Database.getInstance().getPatients();
+        for(Patient p : patients) {
+            if(p.getPatient_id().equals(id)) {
+                p.setPatient_status(state);
+                return true;
+            }
+        }
+        return false;
     }
 }

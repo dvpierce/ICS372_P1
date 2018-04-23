@@ -29,7 +29,8 @@ public class PatientActivity extends AppCompatActivity implements IPatientView {
      * @param view
      */
     public void createPatient(View view) {
-        DialogFragment createPatientDialog = new PatientFragment();
+        PatientFragment createPatientDialog = new PatientFragment();
+        createPatientDialog.setPresenter(presenter);
         createPatientDialog.show(getSupportFragmentManager(), "Create Patient");
     }
 
@@ -51,7 +52,23 @@ public class PatientActivity extends AppCompatActivity implements IPatientView {
         presenter.viewReadings();
     }
 
+    /**
+     * Called when the user taps the search button
+     * Searches the patient
+     * @param view
+     */
     public void searchPatient(View view) { presenter.searchPatient(); }
+
+    /**
+     * Called when the user taps the edit button
+     * Edits the status of the patient
+     * @param view
+     */
+    public void editPatient(View view) {
+        EditPatientFragment editDialog = new EditPatientFragment();
+        editDialog.setPresenter(presenter);
+        if(presenter.hasSelection()) editDialog.show(getSupportFragmentManager(), "Edit Patient");
+    }
 
     @Override
     public void startProgress() {
@@ -93,4 +110,25 @@ public class PatientActivity extends AppCompatActivity implements IPatientView {
     public void searchFailed() {
         Toast.makeText(this, "Search Failed!", Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void patientCreated() {
+        Toast.makeText(this, "Created Successfully!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void patientCreationFailed() {
+        Toast.makeText(this, "Failed! Please make sure inputs are valid!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void editSuccessful() {
+        Toast.makeText(this, "Edit Successful!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void editFailed() {
+        Toast.makeText(this, "Edit Failed!", Toast.LENGTH_SHORT).show();
+    }
+
 }

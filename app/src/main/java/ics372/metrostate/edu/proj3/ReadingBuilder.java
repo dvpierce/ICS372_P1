@@ -16,12 +16,30 @@ public class ReadingBuilder {
         this.reading_date = new Long(now.getTime()/1000);
     }
 
-    public void setReading_value(String value) { this.reading_value = value; }
-    public void setReading_clinic(String clinic) { this.reading_clinic = clinic; }
-    public void setReading_id(String id) { this.reading_id = id; }
-    public void setReading_type(String type) { this.reading_type = type; }
-    public void setPatient_id(String id) { this.patient_id = id; }
-    public void setReading_date(Long time) { this.reading_date = time; }
+    public ReadingBuilder setReading_value(String value) {
+        this.reading_value = value;
+        return this;
+    }
+    public ReadingBuilder setReading_clinic(String clinic) {
+        this.reading_clinic = clinic;
+        return this;
+    }
+    public ReadingBuilder setReading_id(String id) {
+        this.reading_id = id;
+        return this;
+    }
+    public ReadingBuilder setReading_type(String type) {
+        this.reading_type = type;
+        return this;
+    }
+    public ReadingBuilder setPatient_id(String id) {
+        this.patient_id = id;
+        return this;
+    }
+    public ReadingBuilder setReading_date(Long time) {
+        this.reading_date = time;
+        return this;
+    }
 
     public Reading build() {
         Reading r = null;

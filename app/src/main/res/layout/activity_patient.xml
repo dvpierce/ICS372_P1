@@ -151,8 +151,16 @@
             android:text="@string/button_create" />
 
         <Button
-            android:id="@+id/button_detail"
+            android:id="@+id/button_edit"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="editPatient"
+            android:text="@string/button_edit" />
+
+        <Button
+            android:id="@+id/button_detail"
+            android:layout_width="149dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="viewReadings"

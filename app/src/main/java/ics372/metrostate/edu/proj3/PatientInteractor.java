@@ -119,6 +119,5 @@ public class PatientInteractor {
         TableRow row = selectedStack.pop();
         table.removeView(row);
     }
-
 }
 

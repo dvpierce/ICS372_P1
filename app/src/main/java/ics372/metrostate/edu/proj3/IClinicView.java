@@ -12,5 +12,7 @@ public interface IClinicView {
     void navigateToPatients(Intent intent);
     void searchSuccessful(String id);
     void searchFailed();
+    void clinicCreated();
+    void clinicCreationFailed();
 
 }

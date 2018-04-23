@@ -12,5 +12,9 @@ public interface IPatientView {
     void navigateToReadings(Intent intent);
     void searchSuccessful(String id);
     void searchFailed();
+    void patientCreated();
+    void patientCreationFailed();
+    void editSuccessful();
+    void editFailed();
 
 }
