@@ -26,6 +26,9 @@ public class FileReader {
 	}
 
 	public static Boolean read(String filePath) {
+
+		// MainActivity.getContext();
+
 		/** MainActivity passes path to a file, either XML or JSON.
 		 *
 		 * Read the file in using the correct Reader.

@@ -1,6 +1,7 @@
 package ics372.metrostate.edu.proj3;
 
 
+import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -55,9 +56,17 @@ public class CreateReadingActivity extends AppCompatActivity implements ICreateR
         finish();
     }
 
+    private void goToMain() {
+        Intent intent = new Intent(this, MainActivity.class);
+        this.finish();
+        startActivity(intent);
+    }
+
     @Override
     public void createSuccessful() {
         Toast.makeText(this, "Created Successfully!", Toast.LENGTH_SHORT).show();
+        FileWriter.serializeNow(this);
+        this.goToMain();
     }
 
     @Override

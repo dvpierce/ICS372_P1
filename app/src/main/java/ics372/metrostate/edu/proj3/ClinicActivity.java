@@ -100,9 +100,18 @@ public class ClinicActivity extends AppCompatActivity implements IClinicView {
         Toast.makeText(this, "Search Failed!", Toast.LENGTH_SHORT).show();
     }
 
+
+    private void goToMain() {
+        Intent intent = new Intent(this, MainActivity.class);
+        this.finish();
+        startActivity(intent);
+    }
+
     @Override
     public void clinicCreated() {
         Toast.makeText(this, "Successfully Created!", Toast.LENGTH_SHORT).show();
+        FileWriter.serializeNow(this);
+        this.goToMain();
     }
 
     @Override

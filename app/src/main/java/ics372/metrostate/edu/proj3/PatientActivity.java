@@ -111,9 +111,17 @@ public class PatientActivity extends AppCompatActivity implements IPatientView {
         Toast.makeText(this, "Search Failed!", Toast.LENGTH_SHORT).show();
     }
 
+    private void goToMain() {
+        Intent intent = new Intent(this, MainActivity.class);
+        this.finish();
+        startActivity(intent);
+    }
+
     @Override
     public void patientCreated() {
         Toast.makeText(this, "Created Successfully!", Toast.LENGTH_SHORT).show();
+        FileWriter.serializeNow(this);
+        this.goToMain();
     }
 
     @Override

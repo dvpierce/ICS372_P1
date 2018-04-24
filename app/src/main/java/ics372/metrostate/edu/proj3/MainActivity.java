@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
     }
 
 
+    public MainActivity getContext() { return this; }
 
     /**
      * Called when user taps the import button.
