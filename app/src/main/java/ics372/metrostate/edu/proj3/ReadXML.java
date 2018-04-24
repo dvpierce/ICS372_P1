@@ -1,5 +1,8 @@
 package ics372.metrostate.edu.proj3;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -18,16 +21,21 @@ public class ReadXML {
 		return;
 	}
 	
-	public static Boolean read(String filePath) throws IOException, ParserConfigurationException, SAXException
+	public static Boolean read(String filePath, Context cont)
 	{
 
-        File file = new File(filePath);
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        Document doc = dBuilder.parse(file);
-        doc.getDocumentElement().normalize();
-
-		return LoaderXML.load(doc);
+        Document doc;
+        try {
+            File file = new File(filePath);
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            doc = dBuilder.parse(file);
+            doc.getDocumentElement().normalize();
+        } catch (Exception e) {
+            Toast.makeText(cont, "Error - Invalid XML", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+		return LoaderXML.load(doc, cont);
 	}
 	
 }

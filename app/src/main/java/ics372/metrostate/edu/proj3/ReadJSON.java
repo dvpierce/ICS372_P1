@@ -1,5 +1,8 @@
 package ics372.metrostate.edu.proj3;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
@@ -16,7 +19,7 @@ public class ReadJSON {
 		return;
 	}
 	
-	public static Boolean read(String filePath) {
+	public static Boolean read(String filePath, Context cont) {
 		// Parser parses the JSON file into a JSON tree
 		JsonParser parser = new JsonParser();
 		System.out.println("Loading file...");
@@ -25,6 +28,7 @@ public class ReadJSON {
 		    jsontree = parser.parse(new FileReader(filePath));
         } catch (Exception e) {
             e.printStackTrace();
+            Toast.makeText(cont, "Could not parse JSON!", Toast.LENGTH_SHORT).show();
             return false;
         }
 
@@ -35,11 +39,12 @@ public class ReadJSON {
 		    jo = jsontree.getAsJsonObject();
         } catch (Exception e) {
 		    e.printStackTrace();
+            Toast.makeText(cont, "Could not parse JSON!", Toast.LENGTH_SHORT).show();
 		    return false;
         }
         System.out.println(jo.toString());
         System.out.println("Calling LoaderJSON...");
 
-		return LoaderJSON.load(jo);
+		return LoaderJSON.load(jo, cont);
 	}
 }

@@ -1,5 +1,8 @@
 package ics372.metrostate.edu.proj3;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
@@ -18,7 +21,7 @@ public class LoaderJSON {
     }
 
 
-    public static Boolean load(JsonObject jo) {
+    public static Boolean load(JsonObject jo, Context cont) {
 
         // Navigate the JSON tree and load Readings into the Trial,
         // assuming it's formatted like we expect, anyway.
@@ -98,15 +101,18 @@ public class LoaderJSON {
                 } catch (NullPointerException f) {
                     System.out.println("An error occured: json missing data");
                     System.out.println(o.toString());
+                    Toast.makeText(cont, "One or more entries could not be imported - JSON missing data.", Toast.LENGTH_SHORT).show();
                     continue;
                 } catch (Exception e) {
                     System.out.println("Some other error occurred.");
+                    Toast.makeText(cont, "Unknown Error Occurred.", Toast.LENGTH_SHORT).show();
                     continue;
                 }
             }
             return true;
         } catch (Exception e) {
             // Well, okay, so if we get here, there was no patient_readings key.
+            Toast.makeText(cont, "JSON not formatted correctly. Key missing.", Toast.LENGTH_SHORT).show();
             System.out.println("Formatting of this is not consistent with JSON file format.");
             return false;
         }

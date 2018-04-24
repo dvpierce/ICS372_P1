@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
      * @param view
      */
     public void importFile(View view) {
-        presenter.openFileChooser();
+        presenter.openFileChooser(this);
     }
 
     /**

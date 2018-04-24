@@ -3,6 +3,9 @@ package ics372.metrostate.edu.proj3;
 //import javax.xml.parsers.DocumentBuilderFactory;
 //import javax.xml.parsers.ParserConfigurationException;
 //import javax.xml.parsers.DocumentBuilder;
+import android.content.Context;
+import android.widget.Toast;
+
 import org.w3c.dom.Document;
 //import org.xml.sax.SAXException;
 import org.w3c.dom.Node;
@@ -16,7 +19,7 @@ public class LoaderXML {
 
     private LoaderXML() { return; }
 
-    public static Boolean load(Document doc) {
+    public static Boolean load(Document doc, Context cont) {
 
         // Navigate the XML tree and load it into the Trial,
         // assuming it's formatted like we expect, anyway.
@@ -32,6 +35,7 @@ public class LoaderXML {
             ClinicName = e.getTextContent();
         } catch ( NullPointerException e ) {
             System.out.println("This XML file is missing Clinic information.");
+            Toast.makeText(cont, "Missing Clinic Information!", Toast.LENGTH_SHORT).show();
             return false;
         }
         builder.setReading_clinic(ClinicID);
@@ -52,6 +56,7 @@ public class LoaderXML {
         // Do a simple check and see if there are readings to import.
         // If there aren't, we're done.
         if (nList.getLength() == 0) {
+            Toast.makeText(cont, "File contains no readings!", Toast.LENGTH_SHORT).show();
             System.out.println("There were no readings in this file.");
             return false;
         }
@@ -101,6 +106,7 @@ public class LoaderXML {
                 continue;
             }
         }
+        Toast.makeText(cont, String.format("Loaded %d readings.", ReadingsFound), Toast.LENGTH_SHORT).show();
         System.out.println(String.format("Found %d readings.", ReadingsFound));
         return true;
     }

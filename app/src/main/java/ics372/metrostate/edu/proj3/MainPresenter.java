@@ -15,14 +15,14 @@ public class MainPresenter {
         this.view = mainView;
     }
 
-    public void openFileChooser() {
+    public void openFileChooser(final Context cont) {
         new ChooserDialog().with(activity)
                 .withStartFile("/sdcard")
                 .withChosenListener(new ChooserDialog.Result() {
                     @Override
                     public void onChoosePath(String path, File pathFile) {
                         try {
-                            boolean isSuccessful = FileReader.read(path);
+                            boolean isSuccessful = FileReader.read(path, cont);
                             if(isSuccessful) {
                                 view.importSuccessful();
                             } else {
