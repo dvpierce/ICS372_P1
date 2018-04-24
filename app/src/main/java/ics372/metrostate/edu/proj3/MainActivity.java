@@ -16,25 +16,12 @@ public class MainActivity extends AppCompatActivity implements IMainView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FileWriter.deserializeNow(this);
         setContentView(R.layout.activity_main);
         presenter = new MainPresenter(this, this);
-        this.deserializeNow();
     }
 
-    private void serializeNow() {
-        File localStoragePath = getFilesDir();
-        String LCSFile = localStoragePath.getAbsolutePath().toString() + "/state.ser";
-        System.out.println("Serializing to: " + LCSFile);
-        FileWriter.serialize(LCSFile);
-    }
 
-    private void deserializeNow() {
-        File localStoragePath = getFilesDir();
-        String LCSFile = localStoragePath.getAbsolutePath().toString() + "/state.ser";
-        System.out.println("Loading state from: " + LCSFile);
-        FileReader.deserialize(LCSFile);
-
-    }
 
     /**
      * Called when user taps the import button.
@@ -43,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements IMainView {
      */
     public void importFile(View view) {
         presenter.openFileChooser();
-        this.serializeNow();
     }
 
     /**
@@ -55,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements IMainView {
         ExportFragment exportDialog = new ExportFragment();
         exportDialog.setPresenter(presenter);
         exportDialog.show(getSupportFragmentManager(), "Export");
-        this.serializeNow();
     }
 
     /**
@@ -109,5 +94,11 @@ public class MainActivity extends AppCompatActivity implements IMainView {
     @Override
     public void exportFailed() {
         Toast.makeText(this, "Export Failed!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPause(){
+        FileWriter.serializeNow(this);
+        super.onPause();
     }
 }

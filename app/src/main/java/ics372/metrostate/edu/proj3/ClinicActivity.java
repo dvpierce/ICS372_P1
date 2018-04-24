@@ -110,4 +110,10 @@ public class ClinicActivity extends AppCompatActivity implements IClinicView {
         Toast.makeText(this, "Failed! Please make sure inputs are valid!", Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onPause(){
+        FileWriter.serializeNow(this);
+        super.onPause();
+    }
+
 }

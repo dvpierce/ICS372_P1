@@ -67,4 +67,10 @@ public class ReadingActivity extends AppCompatActivity implements IReadingView {
         Toast.makeText(this, "Please select a reading first!", Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onPause(){
+        FileWriter.serializeNow(this);
+        super.onPause();
+    }
+
 }

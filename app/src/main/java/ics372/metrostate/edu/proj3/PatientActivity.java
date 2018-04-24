@@ -131,4 +131,11 @@ public class PatientActivity extends AppCompatActivity implements IPatientView {
         Toast.makeText(this, "Edit Failed!", Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onPause(){
+        FileWriter.serializeNow(this);
+        super.onPause();
+    }
+
 }
+

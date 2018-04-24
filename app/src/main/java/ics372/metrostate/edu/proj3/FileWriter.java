@@ -40,4 +40,19 @@ public class FileWriter {
             return false;
         }
 	}
+
+    public static void serializeNow(Context cont) {
+        File localStoragePath = cont.getFilesDir();
+        String LCSFile = localStoragePath.getAbsolutePath().toString() + "/state.ser";
+        System.out.println("Serializing to: " + LCSFile);
+        FileWriter.serialize(LCSFile);
+    }
+
+    public static void deserializeNow(Context cont) {
+        File localStoragePath = cont.getFilesDir();
+        String LCSFile = localStoragePath.getAbsolutePath().toString() + "/state.ser";
+        System.out.println("Loading state from: " + LCSFile);
+        FileReader.deserialize(LCSFile);
+
+    }
 }
