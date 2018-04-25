@@ -1,20 +1,35 @@
-Feature 1: 3 new clinics
+Feature 1: New Clinics
 The software SHALL track Clinics by Clinic ID.
 The software SHALL associate readings with a particular Clinic ID.
 
-Feature 2: persist data
+Feature 2: Persistent Data
 The software SHALL store application state automatically and regularly.
 The software SHALL reload all stored data at application start.
-The software SHALL allow the user to export all data into a file that can be loaded.
+The software SHALL allow the user to "Export" Readings into a JSON formatted text file.
+The software SHOULD prompt the user for a filename to save.
+The software MAY append ".json" to an exported file, if the user does not provide the proper file type/ending.
 
-Feature 3: read XML files
-The software SHALL allow importing reading, clinic, and patient information stored in a JSON format.
-The software SHALL allow importing reading, clinic, and patient information stored in an XML format.
+Feature 3: Loading Files:
+The software SHALL allow importing readings from XML and JSON files with known data structure.
+The software SHALL allow importing readings from XML and JSON files with appropriate file type extensions.
+The software MAY differentiate between these file types based on the file extension.
+The software SHOULD inform the user if there is an error importing due to file data structure.
+
+Feature 4A: Load JSON Files:
+The software SHALL allow importing reading information stored in a JSON format with a known data structure.
+Readings referencing unknown Clinics or Patients SHALL cause the creation of a new Clinic or Patient with the referenced ID.
 The software SHALL discard readings with missing data.
+The software SHOULD inform the user if data is discarded.
 
-Feature 4: Graphical user interface:
-The software SHALL allow the user the navigate easily using buttons.
+Feature 4B: Load XML files
+The software SHALL allow importing reading, clinic, and patient information stored in an XML format with a known data structure.
+Readings referencing unknown Clinics or Patients SHALL cause the creation of a new Clinic or Patient with the referenced ID.
+The software SHALL discard readings with missing data.
+The software SHOULD inform the user if data is discarded.
+
+Feature 5: Android / Graphical User Interface:
+The software SHALL be operated using a touchscreen interface.
 The software SHALL allow the user to view readings, patients and clinics loaded onto the application.
 The software SHALL allow the user to view readings associated to a specific patient.
 The software SHALL allow the user to view patients associated to a specific clinic.
-The software SHALL allow the user to create new data entries easily and safely.
+The software SHALL allow the user to manually create new readings, patients, and clinics.
