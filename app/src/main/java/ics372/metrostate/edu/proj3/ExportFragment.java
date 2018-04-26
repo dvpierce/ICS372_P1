@@ -1,45 +1,56 @@
 package ics372.metrostate.edu.proj3;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
+
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+
 
 public class ExportFragment extends DialogFragment {
 
-    @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
+    private MainPresenter presenter;
 
-        // Use the Builder class for convenient dialog construction
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-        // Create content
-        builder.setTitle(R.string.dialog_export_title)
-                .setMessage(R.string.dialog_export_message);
-
-        // Get the layout inflater
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-
-        // Inflate and set the layout for the dialog
-        // Pass null as the parent view because it's going in the dialog layout
-        builder.setView(inflater.inflate(R.layout.fragment_export_content, null));
-
-        // Create action buttons
-        builder.setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // export
-                    }
-                })
-                .setNegativeButton(R.string.button_cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // cancel
-                        dialog.dismiss();
-                    }
-                });
-
-        // Create the AlertDialog object and return it
-        return builder.create();
+    public void setPresenter(MainPresenter presenter) {
+        this.presenter = presenter;
     }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_export_content, container);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        // set title
+        getDialog().setTitle(R.string.dialog_export_title);
+
+        // edit text
+        final EditText plainText = view.findViewById(R.id.plainText_exportFile);
+
+        // set buttons on action
+        view.findViewById(R.id.ok_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String fileName = plainText.getText().toString();
+                presenter.exportFile(fileName);
+                getDialog().dismiss();
+            }
+        });
+
+        view.findViewById(R.id.cancel_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getDialog().dismiss();
+            }
+        });
+
+    }
+
 }

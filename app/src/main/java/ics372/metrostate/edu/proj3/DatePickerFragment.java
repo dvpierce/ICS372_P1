@@ -11,6 +11,12 @@ import android.widget.DatePicker;
 public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
 
+    private CreateReadingPresenter presenter;
+
+    public void setPresenter(CreateReadingPresenter presenter) {
+        this.presenter = presenter;
+    }
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the current date as the default date in the picker
@@ -24,6 +30,6 @@ public class DatePickerFragment extends DialogFragment
     }
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        // Do something with the date chosen by the user
+        presenter.getDate(year, month, day);
     }
 }

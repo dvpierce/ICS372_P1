@@ -1,18 +1,25 @@
 package ics372.metrostate.edu.proj3;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
-public class ReadingActivity extends AppCompatActivity {
+public class ReadingActivity extends AppCompatActivity implements IReadingView {
+
+    private ReadingPresenter presenter;
+    private ProgressDialog progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reading);
+        presenter = new ReadingPresenter(this, this);
+        presenter.createTable();
     }
 
     /**
@@ -31,6 +38,39 @@ public class ReadingActivity extends AppCompatActivity {
      * @param view
      */
     public void deleteReading(View view) {
-
+        presenter.deleteReading();
     }
+
+    @Override
+    public void startProgress() {
+        progress = new ProgressDialog(this);
+        progress.setMessage("Fetching readings...");
+    }
+
+    @Override
+    public void endProgress() {
+        if(progress != null) progress.dismiss();
+    }
+
+    @Override
+    public void deleteSuccessful() {
+        Toast.makeText(this, "Delete Successful!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void deleteFailed() {
+        Toast.makeText(this, "Delete Failed!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void nonselected() {
+        Toast.makeText(this, "Please select a reading first!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPause(){
+        FileWriter.serializeNow(this);
+        super.onPause();
+    }
+
 }

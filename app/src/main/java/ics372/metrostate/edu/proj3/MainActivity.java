@@ -6,16 +6,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import java.io.File;
+
 public class MainActivity extends AppCompatActivity implements IMainView {
 
-    MainPresenter presenter;
+    private MainPresenter presenter;
+    public static final String ADDRESS = "MAIN";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FileWriter.deserializeNow(this);
         setContentView(R.layout.activity_main);
         presenter = new MainPresenter(this, this);
     }
+
+
+    public MainActivity getContext() { return this; }
 
     /**
      * Called when user taps the import button.
@@ -23,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
      * @param view
      */
     public void importFile(View view) {
-        presenter.openFileChooser();
+        presenter.openFileChooser(this);
     }
 
     /**
@@ -33,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
      */
     public void exportFile(View view) {
         ExportFragment exportDialog = new ExportFragment();
+        exportDialog.setPresenter(presenter);
         exportDialog.show(getSupportFragmentManager(), "Export");
     }
 
@@ -43,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
      */
     public void manageReadings(View view) {
         Intent intent = new Intent(this, ReadingActivity.class);
+        intent.putExtra(IntentReader.SOURCE_ADDRESS, ADDRESS);
         startActivity(intent);
     }
 
@@ -53,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
      */
     public void managePatients(View view) {
         Intent intent = new Intent(this, PatientActivity.class);
+        intent.putExtra(IntentReader.SOURCE_ADDRESS, ADDRESS);
         startActivity(intent);
     }
 
@@ -63,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
      */
     public void manageClinics(View view) {
         Intent intent = new Intent(this, ClinicActivity.class);
+        intent.putExtra(IntentReader.SOURCE_ADDRESS, ADDRESS);
         startActivity(intent);
     }
 
@@ -76,4 +87,19 @@ public class MainActivity extends AppCompatActivity implements IMainView {
         Toast.makeText(this, "Import Failed!", Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void exportSuccessful() {
+        Toast.makeText(this, "Export Successful!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void exportFailed() {
+        Toast.makeText(this, "Export Failed!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPause(){
+        FileWriter.serializeNow(this);
+        super.onPause();
+    }
 }
