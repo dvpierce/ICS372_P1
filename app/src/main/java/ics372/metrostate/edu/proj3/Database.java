@@ -29,9 +29,7 @@ public class Database implements Serializable {
 	public void addReading(Reading r) { readings.add(r); }
 	public void addClinic(Clinic c) { clinics.add(c); }
 	
-//	public void setPatients(List<Patient> newPatients) { patients = newPatients; }
-//	public void setReadings(List<Reading> newReadings) { readings = newReadings; }
-//	public void setClinics(List<Clinic> newClinics) { clinics = newClinics; }
+
 
 	public static void setSelf(Database newDatabase) {
 		instance = newDatabase;

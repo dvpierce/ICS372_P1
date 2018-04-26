@@ -22,7 +22,7 @@ public class PatientPresenter {
     public PatientActivity getActivity() {
         return this.activity;
     }
-
+//create table
     public void createTable() {
         view.startProgress();
         String source = IntentReader.getSourceAddress(activity.getIntent());
@@ -39,7 +39,7 @@ public class PatientPresenter {
     public void setSelectedPatient(String id) {
         selectedPatient = id;
     }
-
+//delete patient
     public void deletePatient() {
         if(selectedPatient != null) {
             boolean isSuccessful = DBQuery.deletePatient(selectedPatient);
@@ -53,7 +53,7 @@ public class PatientPresenter {
             view.nonselected();
         }
     }
-
+//view patient reading
     public void viewReadings() {
         if(selectedPatient != null) {
             Intent intent = new Intent(activity, ReadingActivity.class);
@@ -64,7 +64,7 @@ public class PatientPresenter {
             view.nonselected();
         }
     }
-
+//search patient
     public void searchPatient() {
         EditText searchText = (EditText) activity.findViewById(R.id.plainText_search_patient);
         String id = searchText.getText().toString();
@@ -75,7 +75,7 @@ public class PatientPresenter {
             view.searchFailed();
         }
     }
-
+//create patient if ID does not exits
     public void createPatient(String patientID, PatientState state) {
         if(patientID.equals("")) {
             view.patientCreationFailed();
@@ -85,7 +85,7 @@ public class PatientPresenter {
             view.patientCreated();
         }
     }
-
+//edit patient info in database
     public void editPatient(PatientState state) {
         if (selectedPatient != null) {
             boolean isSuccessful = DBQuery.changePatientStatus(selectedPatient, state);

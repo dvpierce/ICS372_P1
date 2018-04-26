@@ -26,17 +26,12 @@ public class ReadingInteractor {
         this.selectedStack = new Stack<>();
     }
 
+    // populate reading table
     public void populateAllReadingTable(TableLayout table) {
 
         table.setStretchAllColumns(true);
         List<Reading> readings = Database.getInstance().getReadings();
 
-        /**
-         * Test data
-         */
-//        for (int i = 0; i < 100; i ++) {
-//            readings.add(new Reading("5", "Weight", Integer.toString(i + 1), "33.5", 345235234, "324123"));
-//        }
 
         int index = STARTING_INDEX;
         for(Reading r : readings) {
@@ -99,7 +94,7 @@ public class ReadingInteractor {
             table.addView(row, index ++);
         }
     }
-
+// populate patient reading table
     public void populatePatientReadingTable(TableLayout table, String patientId) {
         table.setStretchAllColumns(true);
         List<Reading> readings = DBQuery.getPatientReadings(patientId);
@@ -165,7 +160,7 @@ public class ReadingInteractor {
             table.addView(row, index ++);
         }
     }
-
+//delete a selected reading if desired
     public void deleteSelected(TableLayout table) {
         TableRow row = selectedStack.pop();
         table.removeView(row);

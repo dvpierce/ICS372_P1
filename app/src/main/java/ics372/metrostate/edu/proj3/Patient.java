@@ -1,6 +1,7 @@
 package ics372.metrostate.edu.proj3;
 import java.io.Serializable;
-
+// Class used to get patient
+// Implements serialization to restore original state
 public class Patient implements Serializable {
 
 	private static final long serialVersionUID = 4270476584826611310L;

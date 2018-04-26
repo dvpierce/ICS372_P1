@@ -18,7 +18,7 @@ public class ClinicPresenter {
         this.interactor = new ClinicInteractor(activity, this);
         this.table = (TableLayout) activity.findViewById(R.id.table_layout);
     }
-
+//create table
     public void createTable() {
         view.startProgress();
         String source = IntentReader.getSourceAddress(activity.getIntent());
@@ -32,7 +32,7 @@ public class ClinicPresenter {
     public void setSelectedClinic(String id) {
         selectedClinic = id;
     }
-
+//delete clinic
     public void deleteClinic() {
         if(selectedClinic != null) {
             boolean isSuccessful = DBQuery.deleteClinic(selectedClinic);
@@ -46,7 +46,7 @@ public class ClinicPresenter {
             view.nonselected();
         }
     }
-
+//view patienta associated to a clinic
     public void viewPatients() {
         if(selectedClinic != null) {
             Intent intent = new Intent(activity, PatientActivity.class);
@@ -57,7 +57,7 @@ public class ClinicPresenter {
             view.nonselected();
         }
     }
-
+//search clinic
     public void searchClinic() {
         EditText searchText = (EditText) activity.findViewById(R.id.plainText_search_clinic);
         String id = searchText.getText().toString();
@@ -68,7 +68,7 @@ public class ClinicPresenter {
             view.searchFailed();
         }
     }
-
+//create clinic if desire
     public void createClinic(String clinicID) {
         if(clinicID.equals("") || clinicID == null) {
             view.clinicCreationFailed();

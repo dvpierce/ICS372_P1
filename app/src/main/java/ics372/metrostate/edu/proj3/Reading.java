@@ -1,6 +1,7 @@
 package ics372.metrostate.edu.proj3;
 import java.io.Serializable;
-
+// Class used to get reading
+// Implements serialization to restore original state
 public class Reading implements Serializable {
 
 	private static final long serialVersionUID = -4780631759279106599L;

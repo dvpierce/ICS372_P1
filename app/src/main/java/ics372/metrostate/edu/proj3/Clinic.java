@@ -1,6 +1,7 @@
 package ics372.metrostate.edu.proj3;
 import java.io.Serializable;
-
+// Class used to get clinic
+// Implements serialization to restore original state
 public class Clinic implements Serializable {
 
 	
