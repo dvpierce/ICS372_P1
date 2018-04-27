@@ -3,7 +3,7 @@ package ics372.metrostate.edu.proj3;
 import android.content.Intent;
 import android.widget.TableLayout;
 import android.widget.TableRow;
-
+// This class is used to view tables for the patient reading
 public class ReadingPresenter {
 
     private IReadingView view;
@@ -18,7 +18,7 @@ public class ReadingPresenter {
         this.interactor = new ReadingInteractor(activity, this);
         this.table = (TableLayout) activity.findViewById(R.id.table_layout);
     }
-
+//create table to view readings
     public void createTable() {
         view.startProgress();
         String source = IntentReader.getSourceAddress(activity.getIntent());
@@ -35,7 +35,7 @@ public class ReadingPresenter {
     public void setSelectedReading(String id) {
         selectedReading = id;
     }
-
+// delete reading if desired
     public void deleteReading() {
         if(selectedReading != null) {
             boolean isSuccessful = DBQuery.deleteReading(selectedReading);

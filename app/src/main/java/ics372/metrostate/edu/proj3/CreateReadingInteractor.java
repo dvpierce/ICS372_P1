@@ -23,7 +23,7 @@ public class CreateReadingInteractor {
     public CreateReadingInteractor(CreateReadingActivity activity) {
         this.activity = activity;
     }
-
+// get list of patient in a clinic
     public List<String> getPatientIDs(List<Patient> patients) {
         List<String> ids = new ArrayList<>();
         for(Patient p : patients) {
@@ -31,7 +31,7 @@ public class CreateReadingInteractor {
         }
         return ids;
     }
-
+//get list of clinics
     public List<String> getClinicIDs(List<Clinic> clinics) {
         List<String> ids = new ArrayList<>();
         for(Clinic c : clinics) {
@@ -39,7 +39,7 @@ public class CreateReadingInteractor {
         }
         return ids;
     }
-
+// get date
     public long convertDateToUnixTime(int year, int month, int day) {
         Calendar date = Calendar.getInstance();
         date.clear();

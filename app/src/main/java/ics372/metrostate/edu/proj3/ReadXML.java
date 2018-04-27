@@ -1,5 +1,5 @@
 package ics372.metrostate.edu.proj3;
-
+// used to read xml file passes to the software
 import android.content.Context;
 import android.widget.Toast;
 

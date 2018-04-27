@@ -25,19 +25,12 @@ public class PatientInteractor {
         this.activity = activity;
         this.selectedStack = new Stack<>();
     }
-
+//populate patient table
     public void populateAllPatientsTable(TableLayout table) {
 
         table.setStretchAllColumns(true);
         List<Patient> patients = Database.getInstance().getPatients();
 
-        /**
-         *
-         * Test data
-         */
-//        for (int i = 0; i < 20; i ++) {
-//            patients.add(new Patient(Integer.toString(i + 1), PatientState.ACTIVE, Integer.toString(5)));
-//        }
 
         int index = STARTING_INDEX;
         for(Patient p : patients) {
@@ -74,7 +67,7 @@ public class PatientInteractor {
             table.addView(row, index ++);
         }
     }
-
+// populate patient-clinic table
     public void populateClinicPatientsTable(TableLayout table, String clinicID) {
         table.setStretchAllColumns(true);
         List<Patient> patients = DBQuery.getClinicPatients(clinicID);
@@ -114,7 +107,7 @@ public class PatientInteractor {
             table.addView(row, index ++);
         }
     }
-
+//delete a table row if desired
     public void deleteSelected(TableLayout table) {
         TableRow row = selectedStack.pop();
         table.removeView(row);

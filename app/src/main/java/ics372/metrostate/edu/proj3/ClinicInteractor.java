@@ -25,19 +25,12 @@ public class ClinicInteractor {
         this.activity = activity;
         this.selectedStack = new Stack<>();
     }
-
+//populate clinics table
     public void populateAllClinicsTable(TableLayout table) {
 
         table.setStretchAllColumns(true);
         List<Clinic> clinics = Database.getInstance().getClinics();
 
-        /**
-         *
-         * Test data
-         */
-//        for (int i = 0; i < 20; i ++) {
-//            clinics.add(new Clinic(Integer.toString(i)));
-//        }
 
         int index = STARTING_INDEX;
         for(Clinic c : clinics) {
@@ -65,7 +58,7 @@ public class ClinicInteractor {
             table.addView(row, index ++);
         }
     }
-
+//delete clinic if desired
     public void deleteSelected(TableLayout table) {
         TableRow row = selectedStack.pop();
         table.removeView(row);
